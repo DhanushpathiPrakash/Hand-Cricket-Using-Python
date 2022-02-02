@@ -18,6 +18,14 @@ def rand():
                 2, (255, 0, 0), 5)
 
 
+#def counter():
+ #   for i in range(3, 0, -1):
+  #      print(i)
+   #     time.sleep(1)
+    #    cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
+     #   cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+
+
 def bat_bowl():
     fingers = []
     if len(lmList) != 0:
@@ -34,15 +42,6 @@ def bat_bowl():
         print(total)
         cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
         cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
-                    2, (255, 0, 0), 5)
-
-
-def counter():
-    for i in range(3, 0, -1):
-        print(i)
-        time.sleep(1)
-        cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
                     2, (255, 0, 0), 5)
 
 
@@ -66,7 +65,7 @@ with mp_hand.Hands(min_detection_confidence=0.5,
                 mp_draw.draw_landmarks(image, hand_landmark, mp_hand.HAND_CONNECTIONS)  # hand coco model
         bat_bowl();
         rand();
-        counter();
+        #counter();
 
         #    if lmList[8][2] < lmList[6][2]:
         #       print("open")

@@ -3,6 +3,8 @@ import mediapipe as mp
 import random
 import time
 
+globals()['temp']=0
+
 mp_draw = mp.solutions.drawing_utils  # Draw the  hand pose
 mp_hand = mp.solutions.hands  # solution for hand
 
@@ -39,9 +41,13 @@ def bat_bowl():
             else:
                 fingers.append(0)
         total = fingers.count(1)
-        print(total)
+        temp = temp + total
+        #print(total)
+        k = cv2.waitKey(1)
+        if k==ord('e'):
+            print(temp)
         cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
+        cv2.putText(image, str(temp), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
                     2, (255, 0, 0), 5)
 
 
@@ -62,9 +68,9 @@ with mp_hand.Hands(min_detection_confidence=0.5,
                     h, w, c = image.shape  # height and weight of frame
                     cx, cy = int(lm.x * w), int(lm.y * h)  # coordinate axis  value
                     lmList.append([id, cx, cy])  # list for coordinate
-                mp_draw.draw_landmarks(image, hand_landmark, mp_hand.HAND_CONNECTIONS)  # hand coco model
+                mp_draw.draw_landmarks(image, hand_landmark, mp_hand.HAND_CONNECTIONS)# hand coco model
         bat_bowl();
-        rand();
+        #rand();
         #counter();
 
         #    if lmList[8][2] < lmList[6][2]:

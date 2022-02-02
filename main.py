@@ -3,7 +3,7 @@ import mediapipe as mp
 import random
 import time
 
-globals()['temp']=0
+#globals()['temp']=0
 
 mp_draw = mp.solutions.drawing_utils  # Draw the  hand pose
 mp_hand = mp.solutions.hands  # solution for hand
@@ -27,7 +27,7 @@ def rand():
     #    cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
      #   cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
 
-
+temp=0
 def bat_bowl():
     fingers = []
     if len(lmList) != 0:

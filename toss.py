@@ -42,6 +42,7 @@ def toss1():
                         fingers.append(0)
                 total = fingers.count(1)
                 print(total)
+                
 
                 cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
                 cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
@@ -49,6 +50,11 @@ def toss1():
 
             cv2.imshow("Frame", image)
             cv2.waitKey(1)
+
+            k = cv2.waitKey(1)
+            if k == ord('t'):
+                break
+
 
 def counter():
     for i in range(3, 0, -1):
@@ -65,7 +71,7 @@ def counter():
 def odd_even():
     while True:
         ret, image = video.read()
-        cv2.putText(image, ("Press e For Even o for Odd "), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+        cv2.putText(image, ("Press e For Even o for Odd "), (45, 275), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 2)
         cv2.imshow("Frame", image)
         k = cv2.waitKey(1)
         if k == ord('e'):
@@ -83,13 +89,13 @@ def odd_even():
 
 
 def randgen():
-    sequence=[1,4,6,10]
-    random. choice(sequence)
+    ra1 = random.choice([0, 1, 2, 3, 4, 5])
+    print(ra1);
     ret, image = video.read()
     cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
-    cv2.putText(image, str(sequence), (45, 175), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-
-
+    cv2.putText(image, str(ra1), (45, 175), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+    cv2.imshow("Frame",image)
+    cv2.waitKey(6)
 
 if __name__=="__main__":
     odd_even()

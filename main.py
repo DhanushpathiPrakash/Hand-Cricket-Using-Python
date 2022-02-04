@@ -3,13 +3,14 @@ import mediapipe as mp
 import random
 import time
 
-#globals()['temp']=0
+globals()['temp']=0
 
 mp_draw = mp.solutions.drawing_utils  # Draw the  hand pose
 mp_hand = mp.solutions.hands  # solution for hand
 
 tipIds = [4, 8, 12, 16, 20]  # to identify tip of all fingers
 video = cv2.VideoCapture(0)
+
 
 
 def rand():
@@ -27,7 +28,7 @@ def rand():
     #    cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
      #   cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
 
-temp=0
+#temp=0
 def bat_bowl():
     fingers = []
     if len(lmList) != 0:
@@ -41,13 +42,14 @@ def bat_bowl():
             else:
                 fingers.append(0)
         total = fingers.count(1)
-        temp = temp + total
-        #print(total)
-        k = cv2.waitKey(1)
-        if k==ord('e'):
-            print(temp)
+        print(total)
+       # return total
+       # k = cv2.waitKey(1)
+       # temp = temp + total
+       # if k==ord('e'):
+        #    print(temp)
         cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(temp), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
+        cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
                     2, (255, 0, 0), 5)
 
 

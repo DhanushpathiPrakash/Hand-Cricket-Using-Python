@@ -95,7 +95,7 @@ def randgen():
     cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
     cv2.putText(image, str(ra1), (45, 175), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
     cv2.imshow("Frame",image)
-    cv2.waitKey(6)
+    cv2.waitKey(10)
 
 if __name__=="__main__":
     odd_even()

@@ -11,6 +11,7 @@ tipIds = [4, 8, 12, 16, 20]  # to identify tip of all fingers
 video = cv2.VideoCapture(0)
 
 def toss1():
+    total = ""
     with mp_hand.Hands(min_detection_confidence=0.5,
                        min_tracking_confidence=0.5) as hands:
         while True:
@@ -41,20 +42,23 @@ def toss1():
                     else:
                         fingers.append(0)
                 total = fingers.count(1)
-                print(total)
-                
+                #print("Toss One Function ic called", total)
+
 
                 cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
                 cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
                             2, (255, 0, 0), 5)
 
-            cv2.imshow("Frame", image)
-            cv2.waitKey(1)
+                cv2.imshow("Frame", image)
+                cv2.waitKey(10)
 
-            k = cv2.waitKey(1)
-            if k == ord('t'):
-                break
+                if total:
+                    return total
 
+
+           # k = cv2.waitKey(1)
+            #if k == ord('t'):
+             #   break
 
 def counter():
     for i in range(3, 0, -1):
@@ -71,20 +75,25 @@ def counter():
 def odd_even():
     while True:
         ret, image = video.read()
-        cv2.putText(image, ("Press e For Even o for Odd "), (45, 275), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 2)
+        cv2.rectangle(image, (55, 370), (575, 420), (39, 0, 130), cv2.FILLED)
+        cv2.putText(image, ("Press e For Even o for Odd "), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
         cv2.imshow("Frame", image)
         k = cv2.waitKey(1)
         if k == ord('e'):
             print("Even")
-            cv2.putText(image, ("Even is choosen"), (45, 175), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+            cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
+            cv2.putText(image, ("Even is choosen"), (153, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
             cv2.imshow("Frame",image)
-            cv2.waitKey(5)
+            cv2.waitKey(50)
+            return "Even"
             break
         elif k == ord('o'):
             print("Odd")
-            cv2.putText(image, ("Odd is choosen"), (45, 175), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+            cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
+            cv2.putText(image, ("Odd is choosen"), (153, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
             cv2.imshow("Frame",image)
-            cv2.waitKey(5)
+            cv2.waitKey(50)
+            return "Odd"
             break
 
 
@@ -97,8 +106,23 @@ def randgen():
     cv2.imshow("Frame",image)
     cv2.waitKey(10)
 
+    if ra1:
+        return ra1
+
 if __name__=="__main__":
-    odd_even()
+    toss=odd_even()
+    print("Returned value toss", toss)
     counter()
-    toss1()
-    randgen()
+    #toss1()
+    value = toss1()
+    print("returned value", value)
+    ran_value = randgen()
+    print("returned random value ", ran_value)
+    tosstotal = ran_value+value
+    print(tosstotal)
+    if (((tosstotal)% 2 == 0) and (toss == "Even")) or (((tosstotal)% 2 != 0) and (toss == "Odd")):
+        print("You own the toss")
+    else:
+        print("you loss the toss")
+        vran = random.choice(["bat","bowl"])
+        print("system a chosen to",vran);

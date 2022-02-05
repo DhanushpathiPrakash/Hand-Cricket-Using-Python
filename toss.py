@@ -122,6 +122,9 @@ if __name__=="__main__":
     print(tosstotal)
     if (((tosstotal)% 2 == 0) and (toss == "Even")) or (((tosstotal)% 2 != 0) and (toss == "Odd")):
         print("You own the toss")
+        prefer = str(input("Type b for Bat and w for Bowl"))
+        print(prefer)
+        print("Let's start the game")
     else:
         print("you loss the toss")
         vran = random.choice(["bat","bowl"])

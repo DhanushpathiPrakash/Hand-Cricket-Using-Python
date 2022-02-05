@@ -86,7 +86,6 @@ def odd_even():
             cv2.imshow("Frame",image)
             cv2.waitKey(50)
             return "Even"
-            break
         elif k == ord('o'):
             print("Odd")
             cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
@@ -94,7 +93,6 @@ def odd_even():
             cv2.imshow("Frame",image)
             cv2.waitKey(50)
             return "Odd"
-            break
 
 
 def randgen():
@@ -117,6 +115,8 @@ if __name__=="__main__":
     value = toss1()
     print("returned value", value)
     ran_value = randgen()
+    if ran_value == None:
+        ran_value = 0
     print("returned random value ", ran_value)
     tosstotal = ran_value+value
     print(tosstotal)

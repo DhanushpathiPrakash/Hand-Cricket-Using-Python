@@ -12,7 +12,6 @@ tipIds = [4, 8, 12, 16, 20]  # to identify tip of all fingers
 video = cv2.VideoCapture(0)
 
 
-
 def rand():
     ra1 = random.choice([0, 1, 2, 3, 4, 5])
     print(ra1);
@@ -28,7 +27,7 @@ def rand():
     #    cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
      #   cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
 
-#temp=0
+
 def bat_bowl():
     fingers = []
     if len(lmList) != 0:
@@ -42,14 +41,13 @@ def bat_bowl():
             else:
                 fingers.append(0)
         total = fingers.count(1)
-        print(total)
-       # return total
-       # k = cv2.waitKey(1)
-       # temp = temp + total
-       # if k==ord('e'):
-        #    print(temp)
+        temp = temp + total
+        #print(total)
+        k = cv2.waitKey(1)
+        if k==ord('e'):
+            print(temp)
         cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
+        cv2.putText(image, str(temp), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
                     2, (255, 0, 0), 5)
 
 

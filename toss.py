@@ -1,3 +1,4 @@
+
 import cv2
 import mediapipe as mp
 import random
@@ -42,7 +43,7 @@ def toss1():
                     else:
                         fingers.append(0)
                 total = fingers.count(1)
-                #print("Toss One Function ic called", total)
+                # print("Toss One Function ic called", total)
 
 
                 cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
@@ -56,14 +57,14 @@ def toss1():
                     return total
 
 
-           # k = cv2.waitKey(1)
-            #if k == ord('t'):
-             #   break
+        # k = cv2.waitKey(1)
+        # if k == ord('t'):
+        #   break
 
 def counter():
     for i in range(3, 0, -1):
         print(i)
-        #time.sleep(1)
+        # time.sleep(1)
         ret, image = video.read()
         cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
         cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
@@ -71,26 +72,36 @@ def counter():
         cv2.imshow("Frame", image)
         cv2.waitKey(1000)
 
+def counter2():
+    for i in range(2, 0, -1):
+        print(i)
+        # time.sleep(1)
+        ret, image = video.read()
+        cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
+        cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+
+        cv2.imshow("Frame", image)
+        cv2.waitKey(350)
 
 def odd_even():
     while True:
         ret, image = video.read()
         cv2.rectangle(image, (55, 370), (575, 420), (39, 0, 130), cv2.FILLED)
-        cv2.putText(image, ("Press e For Even o for Odd "), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
+        cv2.putText(image, ("Press e For Even o for Odd"), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
         cv2.imshow("Frame", image)
         k = cv2.waitKey(1)
         if k == ord('e'):
             print("Even")
             cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
             cv2.putText(image, ("Even is choosen"), (153, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
-            cv2.imshow("Frame",image)
+            cv2.imshow("Frame" ,image)
             cv2.waitKey(50)
             return "Even"
         elif k == ord('o'):
             print("Odd")
             cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
             cv2.putText(image, ("Odd is choosen"), (153, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
-            cv2.imshow("Frame",image)
+            cv2.imshow("Frame" ,image)
             cv2.waitKey(50)
             return "Odd"
 
@@ -101,31 +112,65 @@ def randgen():
     ret, image = video.read()
     cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
     cv2.putText(image, str(ra1), (45, 175), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-    cv2.imshow("Frame",image)
+    cv2.imshow("Frame" ,image)
     cv2.waitKey(10)
 
     if ra1:
         return ra1
 
-if __name__=="__main__":
-    toss=odd_even()
+if __name__ =="__main__":
+    toss =odd_even()
     print("Returned value toss", toss)
     counter()
-    #toss1()
+    # toss1()
     value = toss1()
     print("returned value", value)
     ran_value = randgen()
     if ran_value == None:
         ran_value = 0
     print("returned random value ", ran_value)
-    tosstotal = ran_value+value
+    tosstotal = ran_value +value
     print(tosstotal)
-    if (((tosstotal)% 2 == 0) and (toss == "Even")) or (((tosstotal)% 2 != 0) and (toss == "Odd")):
+    score = 0;
+    score2 = 0;
+    score_pc = 0
+    if (((tosstotal )% 2 == 0) and (toss == "Even")) or (((tosstotal )% 2 != 0) and (toss == "Odd")):
         print("You own the toss")
         prefer = str(input("Type b for Bat and w for Bowl"))
         print(prefer)
         print("Let's start the game")
+        if prefer == "b":
+            while True:
+                counter2()
+                temp_score = toss1()
+                ball = randgen()
+                if ball == None:
+                    ball = 0
+                print("Temp score:", temp_score)
+                print("Ball:", ball)
+                if temp_score == ball:
+                    print("Out !! Score:", score)
+                    break
+                score += temp_score
+        elif prefer == "w":
+            while True:
+                counter2()
+                bat = toss1()
+                score_pc = randgen()
+                if score_pc == None:
+                    score_pc = 0
+                print("Bat score:", bat)
+                print("score:", score_pc)
+                if bat == score_pc:
+                    print("Out !! Bowl Score:", score2)
+                    break
+                score2 += score_pc
+
+
     else:
         print("you loss the toss")
-        vran = random.choice(["bat","bowl"])
-        print("system a chosen to",vran);
+        vran = random.choice(["bat" ,"bowl"])
+        print("system a chosen to" ,vran);
+
+video.release()
+cv2.destroyAllWindows()

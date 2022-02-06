@@ -200,8 +200,9 @@ if __name__ =="__main__":
     score_pc = 0
     if (((tosstotal )% 2 == 0) and (toss == "Even")) or (((tosstotal )% 2 != 0) and (toss == "Odd")):
         print("You own the toss")
-        prefer = str(input("Type b for Bat and w for Bowl"))
-        print(prefer)
+        #prefer = str(input("Type b for Bat and w for Bowl"))
+        #print(prefer)
+        prefer()
         print("Let's start the game")
         if prefer == "b":
             while True:

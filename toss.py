@@ -202,9 +202,9 @@ if __name__ =="__main__":
         print("You own the toss")
         #prefer = str(input("Type b for Bat and w for Bowl"))
         #print(prefer)
-        prefer()
+        prefer = prefer()
         print("Let's start the game")
-        if prefer == "b":
+        if prefer == "Bat":
             while True:
                 counter2()
                 temp_score = toss1()
@@ -212,17 +212,13 @@ if __name__ =="__main__":
                 if ball == None:
                     ball = 0
                 print("Temp score:", temp_score)
-                ret, image = video.read()
-                cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-                cv2.putText(image, str(temp_score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-                cv2.imshow("Frame", image)
-                cv2.waitKey(10)
                 print("Ball:", ball)
                 ret, image = video.read()
                 cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-                cv2.putText(image, str(ball), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+                cv2.putText(image, str(temp_score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+                cv2.putText(image, str(ball), (20, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
                 cv2.imshow("Frame", image)
-                cv2.waitKey(10)
+                cv2.waitKey(100)
                 if temp_score == ball:
                     print("Out !! Score:", score)
                     ret, image = video.read()
@@ -232,7 +228,7 @@ if __name__ =="__main__":
                     cv2.waitKey(10)
                     break
                 score += temp_score
-        elif prefer == "w":
+        elif prefer == "Bowl":
             while True:
                 counter2()
                 bat = toss1()
@@ -240,17 +236,15 @@ if __name__ =="__main__":
                 if score_pc == None:
                     score_pc = 0
                 print("Bat score:", bat)
+                print("score:", score_pc)
                 ret, image = video.read()
                 cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
                 cv2.putText(image, str(bat), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-                cv2.imshow("Frame", image)
-                cv2.waitKey(10)
-                print("score:", score_pc)
-                ret, image = video.read()
                 cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
                 cv2.putText(image, str(score_pc), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
                 cv2.imshow("Frame", image)
-                cv2.waitKey(10)
+                cv2.waitKey(100)
+
                 if bat == score_pc:
                     print("Out !! Bowl Score:", score2)
                     ret, image = video.read()

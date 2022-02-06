@@ -180,6 +180,8 @@ def sysselect():
 
 
 
+
+
 if __name__ =="__main__":
     toss =odd_even()
     print("Returned value toss", toss)
@@ -209,9 +211,24 @@ if __name__ =="__main__":
                 if ball == None:
                     ball = 0
                 print("Temp score:", temp_score)
+                ret, image = video.read()
+                cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+                cv2.putText(image, str(temp_score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+                cv2.imshow("Frame", image)
+                cv2.waitKey(10)
                 print("Ball:", ball)
+                ret, image = video.read()
+                cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+                cv2.putText(image, str(ball), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+                cv2.imshow("Frame", image)
+                cv2.waitKey(10)
                 if temp_score == ball:
                     print("Out !! Score:", score)
+                    ret, image = video.read()
+                    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+                    cv2.putText(image, str(score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+                    cv2.imshow("Frame", image)
+                    cv2.waitKey(10)
                     break
                 score += temp_score
         elif prefer == "w":
@@ -222,17 +239,32 @@ if __name__ =="__main__":
                 if score_pc == None:
                     score_pc = 0
                 print("Bat score:", bat)
+                ret, image = video.read()
+                cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+                cv2.putText(image, str(bat), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+                cv2.imshow("Frame", image)
+                cv2.waitKey(10)
                 print("score:", score_pc)
+                ret, image = video.read()
+                cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
+                cv2.putText(image, str(score_pc), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+                cv2.imshow("Frame", image)
+                cv2.waitKey(10)
                 if bat == score_pc:
                     print("Out !! Bowl Score:", score2)
+                    ret, image = video.read()
+                    cv2.rectangle(image, (230, 425), (340, 455), (250, 88, 182))
+                    cv2.putText(image, str(score2), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
+                    cv2.imshow("Frame", image)
+                    cv2.waitKey(10)
                     break
                 score2 += score_pc
 
 
     else:
-        print("you loss the toss")
-        vran = random.choice(["bat" ,"bowl"])
-        print("system a chosen to" ,vran);
+        tossloss()
+        sysselect()
+        vran()
 
 video.release()
 cv2.destroyAllWindows()

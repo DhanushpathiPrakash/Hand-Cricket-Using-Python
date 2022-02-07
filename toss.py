@@ -244,7 +244,6 @@ if __name__ =="__main__":
                     out_scr(score)
                     break
                 score += temp_score
-            while True:
         elif prefer == "Bowl":
             while True:
                 counter2()

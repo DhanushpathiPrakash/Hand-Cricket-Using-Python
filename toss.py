@@ -11,7 +11,9 @@ mp_hand = mp.solutions.hands  # solution for hand
 tipIds = [4, 8, 12, 16, 20]  # to identify tip of all fingers
 video = cv2.VideoCapture(0)
 
+#temp_scroe1 = 0;
 def toss1():
+    #global temp_scroe1
     total = ""
     with mp_hand.Hands(min_detection_confidence=0.5,
                        min_tracking_confidence=0.5) as hands:
@@ -178,7 +180,30 @@ def sysselect():
     cv2.imshow("Frame", image)
     cv2.waitKey(1000)
 
+def temp_score1(temp_score,ball):
+    ret, image = video.read()
+    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+    cv2.putText(image, str(temp_score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,2, (255, 0, 0), 5)
+    cv2.rectangle(image, (550, 20), (610, 90), (0, 255, 0), cv2.FILLED)
+    cv2.putText(image, str(ball), (560, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+    cv2.imshow("Frame", image)
+    cv2.waitKey(100)
 
+def out_scr(score):
+    ret, image = video.read()
+    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+    cv2.putText(image, str(score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+    cv2.imshow("Frame", image)
+    cv2.waitKey(10)
+
+def bat_sc_pc(bat,score_pc):
+    ret, image = video.read()
+    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+    cv2.putText(image, str(bat), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+    cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
+    cv2.putText(image, str(score_pc), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+    cv2.imshow("Frame", image)
+    cv2.waitKey(100)
 
 
 
@@ -213,21 +238,13 @@ if __name__ =="__main__":
                     ball = 0
                 print("Temp score:", temp_score)
                 print("Ball:", ball)
-                ret, image = video.read()
-                cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-                cv2.putText(image, str(temp_score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-                cv2.putText(image, str(ball), (20, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-                cv2.imshow("Frame", image)
-                cv2.waitKey(100)
+                temp_score1(temp_score,ball)
                 if temp_score == ball:
                     print("Out !! Score:", score)
-                    ret, image = video.read()
-                    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-                    cv2.putText(image, str(score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-                    cv2.imshow("Frame", image)
-                    cv2.waitKey(10)
+                    out_scr(score)
                     break
                 score += temp_score
+            while True:
         elif prefer == "Bowl":
             while True:
                 counter2()
@@ -237,21 +254,10 @@ if __name__ =="__main__":
                     score_pc = 0
                 print("Bat score:", bat)
                 print("score:", score_pc)
-                ret, image = video.read()
-                cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-                cv2.putText(image, str(bat), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-                cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
-                cv2.putText(image, str(score_pc), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-                cv2.imshow("Frame", image)
-                cv2.waitKey(100)
-
+                bat_sc_pc(bat, score_pc)
                 if bat == score_pc:
                     print("Out !! Bowl Score:", score2)
-                    ret, image = video.read()
-                    cv2.rectangle(image, (230, 425), (340, 455), (250, 88, 182))
-                    cv2.putText(image, str(score2), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
-                    cv2.imshow("Frame", image)
-                    cv2.waitKey(10)
+                    out_scr(score2)
                     break
                 score2 += score_pc
 

@@ -223,6 +223,8 @@ if __name__ =="__main__":
     score = 0;
     score2 = 0;
     score_pc = 0
+    score3 = 0
+    score4 = 0
     if (((tosstotal )% 2 == 0) and (toss == "Even")) or (((tosstotal )% 2 != 0) and (toss == "Odd")):
         print("You own the toss")
         #prefer = str(input("Type b for Bat and w for Bowl"))
@@ -244,6 +246,28 @@ if __name__ =="__main__":
                     out_scr(score)
                     break
                 score += temp_score
+            counter()
+            while True:
+                counter2()
+                temp_score = randgen()
+                ball = toss1()
+                if temp_score == None:
+                    temp_score = 0
+                print("2 Inning Score:", temp_score)
+                print("Ball for 2 innning", ball)
+                temp_score1(temp_score,ball)
+                if (ball == temp_score) or (score > score3):
+                    print("Out !! 2 inning score", score3)
+                    out_scr(score3)
+                    break
+                score3 += temp_score
+            if (score > score3):
+                print("you are the winner")
+            elif (score == score3):
+                print("draw")
+            else:
+                print("system own the match")
+
         elif prefer == "Bowl":
             while True:
                 counter2()
@@ -259,7 +283,27 @@ if __name__ =="__main__":
                     out_scr(score2)
                     break
                 score2 += score_pc
-
+            counter()
+            while True:
+                counter2()
+                bat = randgen()
+                score_pc = toss1()
+                if bat == None:
+                    bat = 0
+                print("2nd Bat score:", bat)
+                print("score:",score_pc)
+                bat_sc_pc(bat,score_pc)
+                if (score_pc == bat) or (score2 > score4):
+                    print("second out ", score4)
+                    out_scr(score4)
+                    break
+                score4 += score_pc      # score2 = score2 + score_pc
+            if (score4 > score2):
+                print("you are the winner")
+            elif (score4 == score2):
+                print("match draw")
+            else:
+                print("your are the losser")
 
     else:
         tossloss()

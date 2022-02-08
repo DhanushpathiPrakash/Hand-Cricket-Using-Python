@@ -156,28 +156,24 @@ def startg():
     cv2.imshow("Frame", image)
     cv2.waitKey(1000)
 
-def tossloss():
+
+def vran():
     ret, image = video.read()
     cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
     cv2.putText(image, ("You Loss the toss"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
     cv2.imshow("Frame", image)
     cv2.waitKey(1000)
-
-def vran():
+    ret, image = video.read()
+    cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
+    cv2.putText(image, ("System select for"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
+    cv2.imshow("Frame", image)
+    cv2.waitKey(1000)
     vran1 = random.choice(["bat","bowl"])
     print(vran1);
     ret, image = video.read()
     cv2.rectangle(image, (230, 425), (340, 455), (250, 88, 182))
     cv2.putText(image, str(vran1), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
     cv2.imshow("Frame",image)
-    cv2.waitKey(1000)
-
-
-def sysselect():
-    ret, image = video.read()
-    cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
-    cv2.putText(image, ("System select for"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
-    cv2.imshow("Frame", image)
     cv2.waitKey(1000)
 
 def temp_score1(temp_score,ball):
@@ -306,8 +302,6 @@ if __name__ =="__main__":
                 print("your are the losser")
 
     else:
-        tossloss()
-        sysselect()
         vran()
 
 video.release()

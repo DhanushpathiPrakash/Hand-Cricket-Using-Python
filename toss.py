@@ -168,7 +168,7 @@ def vran():
     cv2.putText(image, ("System select for"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
     cv2.imshow("Frame", image)
     cv2.waitKey(1000)
-    vran1 = random.choice(["bat","bowl"])
+    vran1 = random.choice(["Bat","Bowl"])
     print(vran1);
     ret, image = video.read()
     cv2.rectangle(image, (230, 425), (340, 455), (250, 88, 182))
@@ -310,7 +310,85 @@ if __name__ =="__main__":
                 print("You are the losser")
 
     else:
+        score_5 = 0
+        score_6 = 0
         system_pick = vran()
+        print("Let's start the game")
+        if system_pick == "Bat":
+            while True:
+                counter2()
+                batting = randgen()
+                bowling = toss1()
+                if bowling == None:
+                    bowling = 0
+                print("1st Innings Batting:", batting)
+                print("1st Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
+                if batting == bowling:
+                    print("Out !! 1st Innings Score:", score_5)
+                    out_scr(score_5)
+                    break
+                score_5 += batting
+            counter()
+            ready()
+            while True:
+                counter2()
+                batting = toss1()
+                bowling = randgen()
+                if batting == None:
+                    batting = 0
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
+                if (bowling == batting) or (score_5 < score_6):
+                    print("Out !! 2nd Innings score:", score_6)
+                    out_scr(score_6)
+                    break
+                score_6 += batting
+            if (score_5 > score_6):
+                print("You are the winner")
+            elif (score_5 == score_6):
+                print("Draw")
+            else:
+                print("System own the match")
+
+        elif system_pick == "Bowl":
+            while True:
+                counter2()
+                batting = randgen()
+                bowling = toss1()
+                if batting == None:
+                    batting = 0
+                print("1st Innings Batting:", batting)
+                print("1st Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
+                if bowling == batting:
+                    print("Out !! 1st Innings Score:", score_5)
+                    out_scr(score_5)
+                    break
+                score_5 += batting
+            ready()
+            while True:
+                counter2()
+                batting = toss1()
+                bowling = randgen()
+                if bowling == None:
+                    bowling = 0
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
+                if (bowling == batting) or (score_5 < score_6):
+                    print("Out !! 2nd Innings score:", score_6)
+                    out_scr(score_6)
+                    break
+                score_6 += batting
+            if (score_5 < score_6):
+                print("You are the winner")
+            elif (score_5 == score_6):
+                print("Match Draw")
+            else:
+                print("You are the losser")
+
 
 video.release()
 cv2.destroyAllWindows()

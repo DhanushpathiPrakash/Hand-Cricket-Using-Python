@@ -83,7 +83,7 @@ def counter2():
         cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
 
         cv2.imshow("Frame", image)
-        cv2.waitKey(350)
+        cv2.waitKey(400)
 
 def odd_even():
     while True:
@@ -175,6 +175,7 @@ def vran():
     cv2.putText(image, str(vran1), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
     cv2.imshow("Frame",image)
     cv2.waitKey(1000)
+    return vran1
 
 def temp_score1(temp_score,ball):
     ret, image = video.read()
@@ -192,36 +193,42 @@ def out_scr(score):
     cv2.imshow("Frame", image)
     cv2.waitKey(10)
 
-def bat_sc_pc(bat,score_pc):
-    ret, image = video.read()
-    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-    cv2.putText(image, str(bat), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-    cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
-    cv2.putText(image, str(score_pc), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-    cv2.imshow("Frame", image)
-    cv2.waitKey(100)
+def ready():
+    while True:
+        ret, image = video.read()
+        cv2.rectangle(image, (55, 370), (575, 420), (39, 0, 130), cv2.FILLED)
+        cv2.putText(image, ("Press r to ready !"), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
+        cv2.imshow("Frame", image)
+        k = cv2.waitKey(1)
+        if k == ord('r'):
+            print("Ready !")
+            break
+#def bat_sc_pc(bat,score_pc):
+#    ret, image = video.read()
+#    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+#    cv2.putText(image, str(bat), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+#    cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
+#    cv2.putText(image, str(score_pc), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+#    cv2.imshow("Frame", image)
+#    cv2.waitKey(100)
 
 
 
 if __name__ =="__main__":
-    toss =odd_even()
-    print("Returned value toss", toss)
+    toss = odd_even()
+    print("User Preference:", toss)
     counter()
-    # toss1()
     value = toss1()
-    print("returned value", value)
+    print("User Value:", value)
     ran_value = randgen()
     if ran_value == None:
         ran_value = 0
-    print("returned random value ", ran_value)
+    print("System Value:", ran_value)
     tosstotal = ran_value +value
-    print(tosstotal)
-    score = 0;
-    score2 = 0;
-    score_pc = 0
-    score3 = 0
-    score4 = 0
-    if (((tosstotal )% 2 == 0) and (toss == "Even")) or (((tosstotal )% 2 != 0) and (toss == "Odd")):
+    print("Total:",tosstotal)
+    score_1 = 0
+    score_2 = 0
+    if (((tosstotal) % 2 == 0) and (toss == "Even")) or (((tosstotal) % 2 != 0) and (toss == "Odd")):
         print("You own the toss")
         #prefer = str(input("Type b for Bat and w for Bowl"))
         #print(prefer)
@@ -230,79 +237,80 @@ if __name__ =="__main__":
         if prefer == "Bat":
             while True:
                 counter2()
-                temp_score = toss1()
-                ball = randgen()
-                if ball == None:
-                    ball = 0
-                print("Temp score:", temp_score)
-                print("Ball:", ball)
-                temp_score1(temp_score,ball)
-                if temp_score == ball:
-                    print("Out !! Score:", score)
-                    out_scr(score)
+                batting = toss1()
+                bowling = randgen()
+                if bowling == None:
+                    bowling = 0
+                print("1st Innings Batting:", batting)
+                print("1st Innings Bowling:", bowling)
+                temp_score1(batting,bowling)
+                if batting == bowling:
+                    print("Out !! 1st Innings Score:", score_1)
+                    out_scr(score_1)
                     break
-                score += temp_score
+                score_1 += batting
             counter()
+            ready()
             while True:
                 counter2()
-                temp_score = randgen()
-                ball = toss1()
-                if temp_score == None:
-                    temp_score = 0
-                print("2 Inning Score:", temp_score)
-                print("Ball for 2 innning", ball)
-                temp_score1(temp_score,ball)
-                if (ball == temp_score) or (score > score3):
-                    print("Out !! 2 inning score", score3)
-                    out_scr(score3)
+                batting = randgen()
+                bowling = toss1()
+                if batting == None:
+                    batting = 0
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:", bowling)
+                temp_score1(batting,bowling)
+                if (bowling == batting) or (score_1 < score_2):
+                    print("Out !! 2nd Innings score:", score_2)
+                    out_scr(score_2)
                     break
-                score3 += temp_score
-            if (score > score3):
-                print("you are the winner")
-            elif (score == score3):
-                print("draw")
+                score_2 += batting
+            if (score_1 > score_2):
+                print("You are the winner")
+            elif (score_1 == score_2):
+                print("Draw")
             else:
-                print("system own the match")
+                print("System own the match")
 
         elif prefer == "Bowl":
             while True:
                 counter2()
-                bat = toss1()
-                score_pc = randgen()
-                if score_pc == None:
-                    score_pc = 0
-                print("Bat score:", bat)
-                print("score:", score_pc)
-                bat_sc_pc(bat, score_pc)
-                if bat == score_pc:
-                    print("Out !! Bowl Score:", score2)
-                    out_scr(score2)
+                batting = randgen()
+                bowling = toss1()
+                if batting == None:
+                    batting = 0
+                print("1st Innings Batting:", batting)
+                print("1st Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
+                if bowling == batting:
+                    print("Out !! 1st Innings Score:", score_1)
+                    out_scr(score_1)
                     break
-                score2 += score_pc
-            counter()
+                score_1 += batting
+            ready()
             while True:
                 counter2()
-                bat = randgen()
-                score_pc = toss1()
-                if bat == None:
-                    bat = 0
-                print("2nd Bat score:", bat)
-                print("score:",score_pc)
-                bat_sc_pc(bat,score_pc)
-                if (score_pc == bat) or (score2 > score4):
-                    print("second out ", score4)
-                    out_scr(score4)
+                batting = toss1()
+                bowling = randgen()
+                if bowling == None:
+                    bowling = 0
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:",bowling)
+                temp_score1(batting,bowling)
+                if (bowling == batting) or (score_1 < score_2):
+                    print("Out !! 2nd Innings score:", score_2)
+                    out_scr(score_2)
                     break
-                score4 += score_pc      # score2 = score2 + score_pc
-            if (score4 > score2):
-                print("you are the winner")
-            elif (score4 == score2):
-                print("match draw")
+                score_2 += batting
+            if (score_1 < score_2):
+                print("You are the winner")
+            elif (score_1 == score_2):
+                print("Match Draw")
             else:
-                print("your are the losser")
+                print("You are the losser")
 
     else:
-        vran()
+        system_pick = vran()
 
 video.release()
 cv2.destroyAllWindows()

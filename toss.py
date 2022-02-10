@@ -319,8 +319,8 @@ if __name__ =="__main__":
                 counter2()
                 batting = randgen()
                 bowling = toss1()
-                if bowling == None:
-                    bowling = 0
+                if batting == None:
+                    batting = 0
                 print("1st Innings Batting:", batting)
                 print("1st Innings Bowling:", bowling)
                 temp_score1(batting, bowling)
@@ -330,43 +330,6 @@ if __name__ =="__main__":
                     break
                 score_5 += batting
             counter()
-            ready()
-            while True:
-                counter2()
-                batting = toss1()
-                bowling = randgen()
-                if batting == None:
-                    batting = 0
-                print("2nd Innings Batting:", batting)
-                print("2nd Innings Bowling:", bowling)
-                temp_score1(batting, bowling)
-                if (bowling == batting) or (score_5 < score_6):
-                    print("Out !! 2nd Innings score:", score_6)
-                    out_scr(score_6)
-                    break
-                score_6 += batting
-            if (score_5 > score_6):
-                print("You are the winner")
-            elif (score_5 == score_6):
-                print("Draw")
-            else:
-                print("System own the match")
-
-        elif system_pick == "Bowl":
-            while True:
-                counter2()
-                batting = randgen()
-                bowling = toss1()
-                if batting == None:
-                    batting = 0
-                print("1st Innings Batting:", batting)
-                print("1st Innings Bowling:", bowling)
-                temp_score1(batting, bowling)
-                if bowling == batting:
-                    print("Out !! 1st Innings Score:", score_5)
-                    out_scr(score_5)
-                    break
-                score_5 += batting
             ready()
             while True:
                 counter2()
@@ -383,6 +346,43 @@ if __name__ =="__main__":
                     break
                 score_6 += batting
             if (score_5 < score_6):
+                print("You are the winner")
+            elif (score_5 == score_6):
+                print("Draw")
+            else:
+                print("System own the match")
+
+        elif system_pick == "Bowl":
+            while True:
+                counter2()
+                batting = toss1()
+                bowling = randgen()
+                if bowling == None:
+                    bowling = 0
+                print("1st Innings Batting:", batting)
+                print("1st Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
+                if bowling == batting:
+                    print("Out !! 1st Innings Score:", score_5)
+                    out_scr(score_5)
+                    break
+                score_5 += batting
+            ready()
+            while True:
+                counter2()
+                batting = randgen()
+                bowling = toss1()
+                if batting == None:
+                    batting = 0
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
+                if (bowling == batting) or (score_5 < score_6):
+                    print("Out !! 2nd Innings score:", score_6)
+                    out_scr(score_6)
+                    break
+                score_6 += batting
+            if (score_5 > score_6):
                 print("You are the winner")
             elif (score_5 == score_6):
                 print("Match Draw")

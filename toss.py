@@ -87,7 +87,7 @@ def counter2():
     while TIMER >= 0:
         ret, image = video.read()
         cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(TIMER), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+        cv2.putText(image, str(TIMER), (45, 88), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
         cv2.imshow("Frame", image)
         cv2.waitKey(100)
         cur = time.time()
@@ -200,7 +200,7 @@ def vran():
     while TIMER >= 0:
         ret, image = video.read()
         cv2.rectangle(image, (230, 425), (340, 455), (250, 88, 182))
-        cv2.putText(image, str(vran1), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
+        cv2.putText(image, str(vran1), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
         cv2.imshow("Frame",image)
         cv2.waitKey(100)
         cur = time.time()
@@ -242,8 +242,8 @@ def out_scr(score):
 def ready():
     while True:
         ret, image = video.read()
-        cv2.rectangle(image, (55, 370), (575, 420), (39, 0, 130), cv2.FILLED)
-        cv2.putText(image, ("Press r to ready !"), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
+        cv2.rectangle(image, (55, 370), (600, 420), (39, 0, 130), cv2.FILLED)
+        cv2.putText(image, ("Press r to start 2nd Innings !"), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
         cv2.imshow("Frame", image)
         k = cv2.waitKey(1)
         if k == ord('r'):

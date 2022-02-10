@@ -89,7 +89,7 @@ def counter2():
         cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
         cv2.putText(image, str(TIMER), (45, 88), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
         cv2.imshow("Frame", image)
-        cv2.waitKey(100)
+        cv2.waitKey(50)
         cur = time.time()
         if cur - prev >= 1:
             prev = cur
@@ -286,7 +286,6 @@ if __name__ =="__main__":
                     out_scr(score_1)
                     break
                 score_1 += batting
-            counter()
             ready()
             while True:
                 counter2()

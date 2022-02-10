@@ -69,7 +69,28 @@ with mp_hand.Hands(min_detection_confidence=0.5,
                     cx, cy = int(lm.x * w), int(lm.y * h)  # coordinate axis  value
                     lmList.append([id, cx, cy])  # list for coordinate
                 mp_draw.draw_landmarks(image, hand_landmark, mp_hand.HAND_CONNECTIONS)# hand coco model
-        bat_bowl();
+        fingers = []
+        if len(lmList) != 0:
+            if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
+                fingers.append(1)
+            else:
+                fingers.append(0)
+            for id in range(1, 5):
+                if lmList[tipIds[id]][2] < lmList[tipIds[id] - 2][2]:
+                    fingers.append(1)
+                else:
+                    fingers.append(0)
+            total = fingers.count(1)
+            #temp = temp + total
+            print(total)
+            k = cv2.waitKey(1)
+            if k == ord('e'):
+                print(total)
+            cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+            cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
+                        2, (255, 0, 0), 5)
+            cv2.imshow("Frame", image)
+        #bat_bowl();
         #rand();
         #counter();
 

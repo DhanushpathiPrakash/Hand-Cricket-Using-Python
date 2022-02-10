@@ -10,6 +10,8 @@ mp_hand = mp.solutions.hands  # solution for hand
 
 tipIds = [4, 8, 12, 16, 20]  # to identify tip of all fingers
 video = cv2.VideoCapture(0)
+video.set(3, 1366)
+video.set(4, 768)
 
 #temp_scroe1 = 0;
 def toss1():
@@ -64,26 +66,34 @@ def toss1():
         #   break
 
 def counter():
-    for i in range(3, 0, -1):
-        print(i)
+    prev = time.time()
+    TIMER = int(3)
+    while TIMER >= 0:
+        #print(TIMER)
         # time.sleep(1)
         ret, image = video.read()
         cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(i), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-
+        cv2.putText(image, str(TIMER), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
         cv2.imshow("Frame", image)
-        cv2.waitKey(1000)
+        cv2.waitKey(100)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1
 
 def counter2():
-    for i in range(2, 0, -1):
-        print(i)
-        # time.sleep(1)
+    prev = time.time()
+    TIMER = int(2)
+    while TIMER >= 0:
         ret, image = video.read()
         cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-
+        cv2.putText(image, str(TIMER), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
         cv2.imshow("Frame", image)
-        cv2.waitKey(400)
+        cv2.waitKey(100)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1
 
 def odd_even():
     while True:
@@ -158,40 +168,76 @@ def startg():
 
 
 def vran():
-    ret, image = video.read()
-    cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
-    cv2.putText(image, ("You Loss the toss"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
-    cv2.imshow("Frame", image)
-    cv2.waitKey(1000)
-    ret, image = video.read()
-    cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
-    cv2.putText(image, ("System select for"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
-    cv2.imshow("Frame", image)
-    cv2.waitKey(1000)
-    vran1 = random.choice(["Bat","Bowl"])
+    prev = time.time()
+    TIMER = int(2)
+    while TIMER >= 0:
+        ret, image = video.read()
+        cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
+        cv2.putText(image, ("You Loss the toss"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
+        cv2.imshow("Frame", image)
+        cv2.waitKey(100)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1
+    prev = time.time()
+    TIMER = int(2)
+    while TIMER >= 0:
+        ret, image = video.read()
+        cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
+        cv2.putText(image, ("System select for"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
+        cv2.imshow("Frame", image)
+        cv2.waitKey(100)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1
+
+    prev = time.time()
+    TIMER = int(2)
+    vran1 = random.choice(["Bat", "Bowl"])
     print(vran1);
-    ret, image = video.read()
-    cv2.rectangle(image, (230, 425), (340, 455), (250, 88, 182))
-    cv2.putText(image, str(vran1), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
-    cv2.imshow("Frame",image)
-    cv2.waitKey(1000)
+    while TIMER >= 0:
+        ret, image = video.read()
+        cv2.rectangle(image, (230, 425), (340, 455), (250, 88, 182))
+        cv2.putText(image, str(vran1), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
+        cv2.imshow("Frame",image)
+        cv2.waitKey(100)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1
     return vran1
 
 def temp_score1(temp_score,ball):
-    ret, image = video.read()
-    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-    cv2.putText(image, str(temp_score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,2, (255, 0, 0), 5)
-    cv2.rectangle(image, (550, 20), (610, 90), (0, 255, 0), cv2.FILLED)
-    cv2.putText(image, str(ball), (560, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-    cv2.imshow("Frame", image)
-    cv2.waitKey(100)
+    prev = time.time()
+    TIMER = int(1)
+    while TIMER >= 0:
+        ret, image = video.read()
+        cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+        cv2.putText(image, str("Batting:" + str(temp_score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,2, (255, 0, 0), 5)
+        cv2.rectangle(image, (550, 20), (610, 90), (0, 255, 0), cv2.FILLED)
+        cv2.putText(image, str("Bowling" + str(ball)), (560, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+        cv2.imshow("Frame", image)
+        cv2.waitKey(100)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1
 
 def out_scr(score):
-    ret, image = video.read()
-    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-    cv2.putText(image, str(score), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-    cv2.imshow("Frame", image)
-    cv2.waitKey(10)
+    prev = time.time()
+    TIMER = int(1)
+    while TIMER >= 0:
+        ret, image = video.read()
+        cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+        cv2.putText(image, str("Score:" + str(score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+        cv2.imshow("Frame", image)
+        cv2.waitKey(100)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1
 
 def ready():
     while True:
@@ -203,15 +249,6 @@ def ready():
         if k == ord('r'):
             print("Ready !")
             break
-#def bat_sc_pc(bat,score_pc):
-#    ret, image = video.read()
-#    cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-#    cv2.putText(image, str(bat), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-#    cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
-#    cv2.putText(image, str(score_pc), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-#    cv2.imshow("Frame", image)
-#    cv2.waitKey(100)
-
 
 
 if __name__ =="__main__":
@@ -329,7 +366,6 @@ if __name__ =="__main__":
                     out_scr(score_5)
                     break
                 score_5 += batting
-            counter()
             ready()
             while True:
                 counter2()

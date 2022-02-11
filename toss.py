@@ -309,10 +309,16 @@ if __name__ =="__main__":
                 score_2 += batting
             if (score_1 > score_2):
                 print("You are the winner")
+                display = ("You are the winner")
+                final_result()
             elif (score_1 == score_2):
                 print("Draw")
+                display = ("Match Draw")
+                final_result()
             else:
                 print("System own the match")
+                dispalay = ("System Own the Match")
+                final_result()
 
         elif prefer == "Bowl":
             while True:

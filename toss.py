@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import random
 import time
-
+import numpy as np
 
 mp_draw = mp.solutions.drawing_utils  # Draw the  hand pose
 mp_hand = mp.solutions.hands  # solution for hand
@@ -11,6 +11,7 @@ tipIds = [4, 8, 12, 16, 20]  # to identify tip of all fingers
 video = cv2.VideoCapture(0)
 video.set(3, 1366)
 video.set(4, 768)
+
 
 #temp_scroe1 = 0;
 def toss1():
@@ -60,8 +61,6 @@ def toss1():
                     return total
                 elif total == 0:
                     return total
-
-
 
         # k = cv2.waitKey(1)
         # if k == ord('t'):
@@ -119,7 +118,6 @@ def odd_even():
             cv2.waitKey(100)
             return "Odd"
 
-
 def randgen():
     ra1 = random.choice([0, 1, 2, 3, 4, 5])
     print(ra1);
@@ -167,7 +165,6 @@ def startg():
     cv2.putText(image, ("Let's start Game"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
     cv2.imshow("Frame", image)
     cv2.waitKey(1000)
-
 
 def vran():
     prev = time.time()
@@ -369,7 +366,7 @@ if __name__ =="__main__":
                 final_result()
             else:
                 print("You are the losser")
-                display = ("You are the losser")
+                display = ("System Own the Match")
                 final_result()
 
     else:
@@ -417,7 +414,7 @@ if __name__ =="__main__":
                 final_result()
             else:
                 print("System own the match")
-                display = ("System own the match")
+                display = ("System own the Match")
                 final_result()
 
         elif system_pick == "Bowl":

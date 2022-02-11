@@ -1,4 +1,3 @@
-
 import cv2
 import mediapipe as mp
 import random
@@ -72,8 +71,8 @@ def counter():
         #print(TIMER)
         # time.sleep(1)
         ret, image = video.read()
-        cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(TIMER), (45, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+        cv2.circle(image, (45, 45), 35, (255, 255, 255), -1)
+        cv2.putText(image, str(TIMER), (25, 65), cv2.FONT_HERSHEY_SIMPLEX, 2, (127, 30, 12), 3)
         cv2.imshow("Frame", image)
         cv2.waitKey(100)
         cur = time.time()
@@ -86,8 +85,8 @@ def counter2():
     TIMER = int(2)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (30, 20), (100, 95), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str(TIMER), (45, 88), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+        cv2.circle(image, (45, 45), 35, (255, 255, 255), -1)
+        cv2.putText(image, str(TIMER), (25, 65), cv2.FONT_HERSHEY_SIMPLEX, 2, (127, 30, 12), 3)
         cv2.imshow("Frame", image)
         cv2.waitKey(50)
         cur = time.time()
@@ -98,21 +97,21 @@ def counter2():
 def odd_even():
     while True:
         ret, image = video.read()
-        cv2.rectangle(image, (55, 370), (575, 420), (39, 0, 130), cv2.FILLED)
-        cv2.putText(image, ("Press e For Even o for Odd "), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
+        cv2.rectangle(image, (380, 600), (900, 650), (39, 0, 130), cv2.FILLED)
+        cv2.putText(image, ("Press e For Even o for Odd "), (390, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
         cv2.imshow("Frame", image)
         k = cv2.waitKey(1)
         if k == ord('e'):
             print("Even")
-            cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
-            cv2.putText(image, ("Even is choosen"), (153, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
+            cv2.rectangle(image, (480, 660), (760, 700), (39, 0, 130), cv2.FILLED)
+            cv2.putText(image, ("Even is choosen"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
             cv2.imshow("Frame" ,image)
             cv2.waitKey(50)
             return "Even"
         elif k == ord('o'):
             print("Odd")
-            cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
-            cv2.putText(image, ("Odd is choosen"), (153, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
+            cv2.rectangle(image, (480, 660), (760, 700), (39, 0, 130), cv2.FILLED)
+            cv2.putText(image, ("Odd is choosen"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
             cv2.imshow("Frame" ,image)
             cv2.waitKey(50)
             return "Odd"
@@ -122,8 +121,8 @@ def randgen():
     ra1 = random.choice([0, 1, 2, 3, 4, 5])
     print(ra1);
     ret, image = video.read()
-    cv2.rectangle(image, (550, 20), (610, 90), (0, 255, 0), cv2.FILLED)
-    cv2.putText(image, str(ra1), (560, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+    #cv2.rectangle(image, (550, 20), (610, 90), (0, 255, 0), cv2.FILLED)
+    #cv2.putText(image, str(ra1), (560, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
     cv2.imshow("Frame" ,image)
     cv2.waitKey(10)
 
@@ -133,21 +132,21 @@ def randgen():
 def prefer():
     while True:
         ret, image = video.read()
-        cv2.rectangle(image, (55, 370), (575, 420), (39, 0, 130), cv2.FILLED)
-        cv2.putText(image, ("Press b For Bat and w for Bowl"), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
+        cv2.rectangle(image, (350, 600), (950, 650), (39, 0, 130), cv2.FILLED)
+        cv2.putText(image, ("Press b For Bat and w for Bowl"), (360, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182),2)
         cv2.imshow("Frame", image)
         k = cv2.waitKey(1)
         if k == ord('b'):
             print("Bat")
-            cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
-            cv2.putText(image, ("Bat"), (153, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
+            cv2.rectangle(image, (500, 660), (760, 700), (39, 0, 130), cv2.FILLED)
+            cv2.putText(image, ("Bat"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
             cv2.imshow("Frame",image)
             cv2.waitKey(250)
             return "Bat"
         elif k == ord('w'):
             print("Bowl")
-            cv2.rectangle(image, (150, 425), (415, 455), (250, 88, 182))
-            cv2.putText(image, ("Bowl"), (153, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
+            cv2.rectangle(image, (500, 660), (760, 700), (39, 0, 130), cv2.FILLED)
+            cv2.putText(image, ("Bowl"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
             cv2.imshow("Frame",image)
             cv2.waitKey(250)
             return "Bowl"
@@ -172,8 +171,8 @@ def vran():
     TIMER = int(2)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
-        cv2.putText(image, ("You Loss the toss"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
+        cv2.rectangle(image, (480, 660), (800, 700), (39, 0, 130), cv2.FILLED)
+        cv2.putText(image, ("You Loss the toss"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
         cv2.imshow("Frame", image)
         cv2.waitKey(100)
         cur = time.time()
@@ -184,8 +183,8 @@ def vran():
     TIMER = int(2)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
-        cv2.putText(image, ("System select for"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
+        cv2.rectangle(image, (480, 660), (790, 700), (39, 0, 130), cv2.FILLED)
+        cv2.putText(image, ("System select for"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
         cv2.imshow("Frame", image)
         cv2.waitKey(100)
         cur = time.time()
@@ -199,8 +198,8 @@ def vran():
     print(vran1);
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (230, 425), (340, 455), (250, 88, 182))
-        cv2.putText(image, str(vran1), (253, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
+        cv2.rectangle(image, (590, 660), (680, 700), (250, 88, 182))
+        cv2.putText(image, str(vran1), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 1)
         cv2.imshow("Frame",image)
         cv2.waitKey(100)
         cur = time.time()
@@ -214,10 +213,10 @@ def temp_score1(temp_score,ball):
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str("Batting:" + str(temp_score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,2, (255, 0, 0), 5)
-        cv2.rectangle(image, (550, 20), (610, 90), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str("Bowling" + str(ball)), (560, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+        cv2.rectangle(image, (20, 620), (370, 690), (0, 255, 0), cv2.FILLED)
+        cv2.putText(image, str("Batting: " + str(temp_score)), (40, 675), cv2.FONT_HERSHEY_SIMPLEX,2, (255, 0, 0), 3)
+        cv2.rectangle(image, (900, 20), (1250, 90), (0, 255, 0), cv2.FILLED)
+        cv2.putText(image, str("Bowling: " + str(ball)), (920, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 3)
         cv2.imshow("Frame", image)
         cv2.waitKey(100)
         cur = time.time()
@@ -230,8 +229,8 @@ def out_scr(score):
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str("Score:" + str(score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+        cv2.rectangle(image, (20, 300), (300, 395), (0, 255, 0), cv2.FILLED)
+        cv2.putText(image, str("Score:" + str(score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 3)
         cv2.imshow("Frame", image)
         cv2.waitKey(100)
         cur = time.time()
@@ -242,8 +241,8 @@ def out_scr(score):
 def ready():
     while True:
         ret, image = video.read()
-        cv2.rectangle(image, (55, 370), (600, 420), (39, 0, 130), cv2.FILLED)
-        cv2.putText(image, ("Press r to start 2nd Innings !"), (65, 410), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182), 2)
+        cv2.rectangle(image, (350, 600), (910, 650), (39, 0, 130), cv2.FILLED)
+        cv2.putText(image, ("Press r to start 2nd Innings !"), (370, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (250, 88, 182),2)
         cv2.imshow("Frame", image)
         k = cv2.waitKey(1)
         if k == ord('r'):
@@ -382,6 +381,7 @@ if __name__ =="__main__":
                 score_6 += batting
             if (score_5 < score_6):
                 print("You are the winner")
+
             elif (score_5 == score_6):
                 print("Draw")
             else:

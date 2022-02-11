@@ -171,7 +171,7 @@ def startg():
 
 def vran():
     prev = time.time()
-    TIMER = int(2)
+    TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
         cv2.rectangle(image, (480, 660), (800, 700), (0, 181, 248), cv2.FILLED)
@@ -183,7 +183,7 @@ def vran():
             prev = cur
             TIMER = TIMER - 1
     prev = time.time()
-    TIMER = int(2)
+    TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
         cv2.rectangle(image, (480, 660), (790, 700), (0, 181, 248), cv2.FILLED)
@@ -196,7 +196,7 @@ def vran():
             TIMER = TIMER - 1
 
     prev = time.time()
-    TIMER = int(2)
+    TIMER = int(1)
     vran1 = random.choice(["Bat", "Bowl"])
     print(vran1);
     while TIMER >= 0:

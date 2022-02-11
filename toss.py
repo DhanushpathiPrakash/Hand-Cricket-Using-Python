@@ -58,6 +58,9 @@ def toss1():
 
                 if total:
                     return total
+                elif total == 0:
+                    return total
+
 
 
         # k = cv2.waitKey(1)
@@ -88,7 +91,7 @@ def counter2():
         cv2.circle(image, (45, 45), 35, (255, 255, 255), -1)
         cv2.putText(image, str(TIMER), (25, 65), cv2.FONT_HERSHEY_SIMPLEX, 2, (127, 30, 12), 3)
         cv2.imshow("Frame", image)
-        cv2.waitKey(50)
+        cv2.waitKey(10)
         cur = time.time()
         if cur - prev >= 1:
             prev = cur
@@ -174,7 +177,7 @@ def vran():
         cv2.rectangle(image, (480, 660), (800, 700), (0, 181, 248), cv2.FILLED)
         cv2.putText(image, ("You Loss the toss"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (127, 34, 94), 1)
         cv2.imshow("Frame", image)
-        cv2.waitKey(100)
+        cv2.waitKey(30)
         cur = time.time()
         if cur - prev >= 1:
             prev = cur
@@ -186,7 +189,7 @@ def vran():
         cv2.rectangle(image, (480, 660), (790, 700), (0, 181, 248), cv2.FILLED)
         cv2.putText(image, ("System select for"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (127, 34, 94), 1)
         cv2.imshow("Frame", image)
-        cv2.waitKey(100)
+        cv2.waitKey(30)
         cur = time.time()
         if cur - prev >= 1:
             prev = cur
@@ -201,7 +204,7 @@ def vran():
         cv2.rectangle(image, (590, 660), (680, 700), (109, 76, 76), cv2.FILLED)
         cv2.putText(image, str(vran1), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (148, 225, 255), 1)
         cv2.imshow("Frame",image)
-        cv2.waitKey(100)
+        cv2.waitKey(30)
         cur = time.time()
         if cur - prev >= 1:
             prev = cur
@@ -250,11 +253,19 @@ def ready():
             break
 
 def final_result():
-    ret, image = video.read()
-    cv2.rectangle(image, (350, 600), (910, 650), (231, 239, 228), cv2.FILLED)
-    cv2.putText(image, str(display), (370, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (32, 68, 6), 2)
-    cv2.imshow("Frame", image)
-    cv2.waitKey(100)
+    prev = time.time()
+    TIMER = int(2)
+    while TIMER >= 0:
+        ret, image = video.read()
+        cv2.rectangle(image, (350, 600), (910, 650), (231, 239, 228), cv2.FILLED)
+        cv2.putText(image, str(display), (370, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (32, 68, 6), 2)
+        cv2.imshow("Frame", image)
+        cv2.waitKey(50)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1
+
 
 
 if __name__ =="__main__":
@@ -317,7 +328,7 @@ if __name__ =="__main__":
                 final_result()
             else:
                 print("System own the match")
-                dispalay = ("System Own the Match")
+                display = ("System Own the Match")
                 final_result()
 
         elif prefer == "Bowl":

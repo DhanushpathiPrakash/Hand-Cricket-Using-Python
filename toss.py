@@ -232,7 +232,7 @@ def out_scr(score):
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (20, 300), (300, 395), (0, 255, 0), cv2.FILLED)
+        cv2.rectangle(image, (20, 300), (300, 410), (0, 255, 0), cv2.FILLED)
         cv2.putText(image, str("Score:" + str(score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 3)
         cv2.imshow("Frame", image)
         cv2.waitKey(100)
@@ -265,8 +265,6 @@ def final_result():
         if cur - prev >= 1:
             prev = cur
             TIMER = TIMER - 1
-
-
 
 if __name__ =="__main__":
     toss = odd_even()
@@ -310,13 +308,13 @@ if __name__ =="__main__":
                 bowling = toss1()
                 if batting == None:
                     batting = 0
-                print("2nd Innings Batting:", batting)
-                print("2nd Innings Bowling:", bowling)
-                temp_score1(batting,bowling)
                 if (bowling == batting) or (score_1 < score_2):
                     print("Out !! 2nd Innings score:", score_2)
                     out_scr(score_2)
                     break
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
                 score_2 += batting
             if (score_1 > score_2):
                 print("You are the winner")
@@ -353,13 +351,13 @@ if __name__ =="__main__":
                 bowling = randgen()
                 if bowling == None:
                     bowling = 0
-                print("2nd Innings Batting:", batting)
-                print("2nd Innings Bowling:",bowling)
-                temp_score1(batting,bowling)
                 if (bowling == batting) or (score_1 < score_2):
                     print("Out !! 2nd Innings score:", score_2)
                     out_scr(score_2)
                     break
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
                 score_2 += batting
             if (score_1 < score_2):
                 print("You are the winner")
@@ -401,13 +399,13 @@ if __name__ =="__main__":
                 bowling = randgen()
                 if bowling == None:
                     bowling = 0
-                print("2nd Innings Batting:", batting)
-                print("2nd Innings Bowling:", bowling)
-                temp_score1(batting, bowling)
                 if (bowling == batting) or (score_5 < score_6):
                     print("Out !! 2nd Innings score:", score_6)
                     out_scr(score_6)
                     break
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
                 score_6 += batting
             if (score_5 < score_6):
                 print("You are the winner")
@@ -444,13 +442,13 @@ if __name__ =="__main__":
                 bowling = toss1()
                 if batting == None:
                     batting = 0
-                print("2nd Innings Batting:", batting)
-                print("2nd Innings Bowling:", bowling)
-                temp_score1(batting, bowling)
                 if (bowling == batting) or (score_5 < score_6):
                     print("Out !! 2nd Innings score:", score_6)
                     out_scr(score_6)
                     break
+                print("2nd Innings Batting:", batting)
+                print("2nd Innings Bowling:", bowling)
+                temp_score1(batting, bowling)
                 score_6 += batting
             if (score_5 > score_6):
                 print("You are the winner")

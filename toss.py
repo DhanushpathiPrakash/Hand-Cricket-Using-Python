@@ -13,21 +13,26 @@ video.set(3, 1366)
 video.set(4, 768)
 
 def logo():
+    prev = time.time()
+    TIMER = int(2)
     logo1 = cv2.imread('HPL.png')
-    size =220
+    size = 220
     logo1 = cv2.resize(logo1, (size, size))
     img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
-    while video.isOpened():
+    while video.isOpened() and TIMER >= 0:
         ret, image = video.read()
         if ret:
-            image = cv2.flip(image, 1)
+            #image = cv2.flip(image, 0)
             roi = image[-size - 250:-250, -size - 500:-500]
             roi[np.where(mask)] = 0
             roi += logo1
-            cv2.imshow('WebCam', image)
-            cv2.waitKey(1)
-
+            cv2.imshow('Frame', image)
+            cv2.waitKey(30)
+            cur = time.time()
+            if cur - prev >= 1:
+                prev = cur
+                TIMER = TIMER - 1
 
 #temp_scroe1 = 0;
 def toss1():
@@ -83,6 +88,11 @@ def toss1():
         #   break
 
 def counter():
+    logo1 = cv2.imread('HPL.png')
+    size = 100
+    logo1 = cv2.resize(logo1, (size, size))
+    img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
+    ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     prev = time.time()
     TIMER = int(3)
     while TIMER >= 0:
@@ -91,6 +101,9 @@ def counter():
         ret, image = video.read()
         cv2.circle(image, (45, 45), 35, (255, 255, 255), -1)
         cv2.putText(image, str(TIMER), (25, 65), cv2.FONT_HERSHEY_SIMPLEX, 2, (127, 30, 12), 3)
+        roi = image[-size - 10:-10, -size - 10:-10]
+        roi[np.where(mask)] = 0
+        roi += logo1
         cv2.imshow("Frame", image)
         cv2.waitKey(100)
         cur = time.time()
@@ -99,12 +112,20 @@ def counter():
             TIMER = TIMER - 1
 
 def counter2():
+    logo1 = cv2.imread('HPL.png')
+    size = 100
+    logo1 = cv2.resize(logo1, (size, size))
+    img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
+    ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     prev = time.time()
     TIMER = int(2)
     while TIMER >= 0:
         ret, image = video.read()
         cv2.circle(image, (45, 45), 35, (255, 255, 255), -1)
         cv2.putText(image, str(TIMER), (25, 65), cv2.FONT_HERSHEY_SIMPLEX, 2, (127, 30, 12), 3)
+        roi = image[-size - 10:-10, -size - 10:-10]
+        roi[np.where(mask)] = 0
+        roi += logo1
         cv2.imshow("Frame", image)
         cv2.waitKey(10)
         cur = time.time()
@@ -113,16 +134,27 @@ def counter2():
             TIMER = TIMER - 1
 
 def odd_even():
+    logo1 = cv2.imread('HPL.png')
+    size = 100
+    logo1 = cv2.resize(logo1, (size, size))
+    img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
+    ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     while True:
         ret, image = video.read()
         cv2.rectangle(image, (380, 600), (900, 650), (116, 132, 255), cv2.FILLED)
         cv2.putText(image, ("Press e For Even o for Odd "), (390, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (114, 61, 88), 2)
+        roi = image[-size - 10:-10, -size - 10:-10]
+        roi[np.where(mask)] = 0
+        roi += logo1
         cv2.imshow("Frame", image)
         k = cv2.waitKey(1)
         if k == ord('e'):
             print("Even")
             cv2.rectangle(image, (480, 660), (760, 700), (252, 249, 178), cv2.FILLED)
             cv2.putText(image, ("Even is choosen"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (9, 19, 83), 1)
+            roi = image[-size - 10:-10, -size - 10:-10]
+            roi[np.where(mask)] = 0
+            roi += logo1
             cv2.imshow("Frame" ,image)
             cv2.waitKey(100)
             return "Even"
@@ -130,6 +162,9 @@ def odd_even():
             print("Odd")
             cv2.rectangle(image, (480, 660), (760, 700), (252, 249, 178), cv2.FILLED)
             cv2.putText(image, ("Odd is choosen"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (9, 19, 83), 1)
+            roi = image[-size - 10:-10, -size - 10:-10]
+            roi[np.where(mask)] = 0
+            roi += logo1
             cv2.imshow("Frame" ,image)
             cv2.waitKey(100)
             return "Odd"

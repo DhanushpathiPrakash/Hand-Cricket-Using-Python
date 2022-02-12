@@ -1,0 +1,46 @@
+ logo1 = cv2.imread('HPL.png')
+    size = 100
+    logo1 = cv2.resize(logo1, (size, size))
+    img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
+    ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
+    prev = time.time()
+
+    bat = cv2.imread('bat.png')
+    sizeb = 200
+    bat = cv2.resize(bat, (sizeb, sizeb))
+    img2gray = cv2.cvtColor(bat, cv2.COLOR_BGR2GRAY)
+    ret, maskb = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
+
+    ball = cv2.imread('ball.png')
+    sizel = 100
+    ball = cv2.resize(ball, (sizel, sizel))
+    img2gray = cv2.cvtColor(ball, cv2.COLOR_BGR2GRAY)
+    ret, maskl = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
+
+
+
+    TIMER = int(1)
+    while TIMER >= 0:
+        ret, image = video.read()
+
+        cv2.rectangle(image, (20, 620), (370, 690), (189, 51, 13), cv2.FILLED)
+        roib = image[-sizeb - 500:-500, -sizeb - 500:-500]
+        roib[np.where(maskb)] = 0
+        roib += bat
+        cv2.putText(image, str("Batting: " + str(temp_score)), (40, 675), cv2.FONT_HERSHEY_SIMPLEX,2, (243, 255, 242), 3)
+
+        cv2.rectangle(image, (900, 20), (1250, 90), (189, 51, 13), cv2.FILLED)
+        roil = image[-sizel - 400:-400, -sizel - 400:-400]
+        roil[np.where(maskl)] = 0
+        roil += ball
+        cv2.putText(image, str("Bowling: " + str(ball)), (920, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (243, 255, 242), 3)
+
+        roi = image[-size - 10:-10, -size - 10:-10]
+        roi[np.where(mask)] = 0
+        roi += logo1
+        cv2.imshow("Frame", image)
+        cv2.waitKey(100)
+        cur = time.time()
+        if cur - prev >= 1:
+            prev = cur
+            TIMER = TIMER - 1

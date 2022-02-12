@@ -71,9 +71,9 @@ def toss1():
                 # print("Toss One Function ic called", total)
 
 
-                cv2.rectangle(image, (20, 300), (270, 425), (0, 255, 0), cv2.FILLED)
+                cv2.rectangle(image, (20, 300), (270, 425), (189, 51, 13), cv2.FILLED)
                 cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
-                            2, (255, 0, 0), 5)
+                            2, (243, 255, 242), 5)
 
                 cv2.imshow("Frame", image)
                 cv2.waitKey(10)
@@ -310,17 +310,40 @@ def temp_score1(temp_score,ball):
     img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     prev = time.time()
+
+    bat = cv2.imread('bat.png')
+    sizeb = 100
+    bat = cv2.resize(bat, (sizeb, sizeb))
+    img2gray = cv2.cvtColor(bat, cv2.COLOR_BGR2GRAY)
+    ret, maskb = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
+
+    ball1 = cv2.imread('ball.png')
+    sizel = 50
+    ball1 = cv2.resize(ball1, (sizel, sizel))
+    img2gray = cv2.cvtColor(ball1, cv2.COLOR_BGR2GRAY)
+    ret, maskl = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
+
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (20, 620), (370, 690), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str("Batting: " + str(temp_score)), (40, 675), cv2.FONT_HERSHEY_SIMPLEX,2, (255, 0, 0), 3)
-        cv2.rectangle(image, (900, 20), (1250, 90), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str("Bowling: " + str(ball)), (920, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 3)
+
+        cv2.rectangle(image, (100, 565), (160, 700), (189, 51, 13), cv2.FILLED)
+        roib = image[-sizeb - 5:-5, -sizeb - 1100:-1100]
+        roib[np.where(maskb)] = 0
+        roib += bat
+        cv2.putText(image, str(temp_score), (110, 625), cv2.FONT_HERSHEY_SIMPLEX,2, (243, 255, 242), 3)
+
+        cv2.rectangle(image, (1175, 20), (1235, 135), (189, 51, 13), cv2.FILLED)
+        roil = image[-sizel - 585:-585, -sizel - 50:-50]
+        roil[np.where(maskl)] = 0
+        roil += ball1
+        cv2.putText(image, str(ball), (1185, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (243, 255, 242), 3)
+
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
         cv2.imshow("Frame", image)
+
         cv2.waitKey(100)
         cur = time.time()
         if cur - prev >= 1:
@@ -337,8 +360,8 @@ def out_scr(score):
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (20, 300), (300, 410), (0, 255, 0), cv2.FILLED)
-        cv2.putText(image, str("Score:" + str(score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 3)
+        cv2.rectangle(image, (20, 300), (300, 410), (189, 51, 13), cv2.FILLED)
+        cv2.putText(image, str("Score:" + str(score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (243, 255, 242), 3)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
@@ -391,7 +414,7 @@ def final_result():
             TIMER = TIMER - 1
 
 if __name__ =="__main__":
-    logo()
+    #logo()
     toss = odd_even()
     print("User Preference:", toss)
     counter()

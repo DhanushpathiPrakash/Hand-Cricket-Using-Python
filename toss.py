@@ -12,6 +12,22 @@ video = cv2.VideoCapture(0)
 video.set(3, 1366)
 video.set(4, 768)
 
+def logo():
+    logo1 = cv2.imread('HPL.png')
+    size = 100
+    logo1 = cv2.resize(logo1, (size, size))
+    img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
+    ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
+    while video.isOpened():
+        ret, image = video.read()
+        if ret:
+            image = cv2.flip(image, 1)
+            roi = image[-size - 10:-10, -size - 10:-10]
+            roi[np.where(mask)] = 0
+            roi += logo1
+            cv2.imshow('WebCam', image)
+            cv2.waitKey(1)
+
 
 #temp_scroe1 = 0;
 def toss1():
@@ -264,6 +280,7 @@ def final_result():
             TIMER = TIMER - 1
 
 if __name__ =="__main__":
+    logo()
     toss = odd_even()
     print("User Preference:", toss)
     counter()

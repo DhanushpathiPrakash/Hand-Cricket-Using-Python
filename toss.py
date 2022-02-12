@@ -327,17 +327,17 @@ def temp_score1(temp_score,ball):
     while TIMER >= 0:
         ret, image = video.read()
 
-        cv2.rectangle(image, (100, 565), (160, 700), (189, 51, 13), cv2.FILLED)
+        cv2.rectangle(image, (100, 565), (160, 700), (94, 50, 33), cv2.FILLED)
         roib = image[-sizeb - 5:-5, -sizeb - 1100:-1100]
         roib[np.where(maskb)] = 0
         roib += bat
-        cv2.putText(image, str(temp_score), (110, 625), cv2.FONT_HERSHEY_SIMPLEX,2, (243, 255, 242), 3)
+        cv2.putText(image, str(temp_score), (110, 625), cv2.FONT_HERSHEY_SIMPLEX,2, (10, 208, 241), 3)
 
-        cv2.rectangle(image, (1175, 20), (1235, 135), (189, 51, 13), cv2.FILLED)
+        cv2.rectangle(image, (1175, 20), (1235, 135), (94, 50, 33), cv2.FILLED)
         roil = image[-sizel - 585:-585, -sizel - 50:-50]
         roil[np.where(maskl)] = 0
         roil += ball1
-        cv2.putText(image, str(ball), (1185, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (243, 255, 242), 3)
+        cv2.putText(image, str(ball), (1185, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (10, 208, 241), 3)
 
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
@@ -360,8 +360,8 @@ def out_scr(score):
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (20, 300), (300, 410), (189, 51, 13), cv2.FILLED)
-        cv2.putText(image, str("Score:" + str(score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (243, 255, 242), 3)
+        cv2.rectangle(image, (450, 620), (775, 680), (94, 50, 33), cv2.FILLED)
+        cv2.putText(image, str("Score:" + str(score)), (460, 670), cv2.FONT_HERSHEY_SIMPLEX, 2, (10, 208, 241), 2)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1

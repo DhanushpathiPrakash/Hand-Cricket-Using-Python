@@ -12,21 +12,19 @@ tipIds = [4, 8, 12, 16, 20]  # to identify tip of all fingers
 video = cv2.VideoCapture(0)
 
 
-def rand():
-    ra1 = random.choice([0, 1, 2, 3, 4, 5])
-    print(ra1);
-    cv2.rectangle(image, (300, 300), (570, 425), (0, 255, 0), cv2.FILLED)
-    cv2.putText(image, str(ra1), (390, 375), cv2.FONT_HERSHEY_SIMPLEX,
-                2, (255, 0, 0), 5)
+#def rand():
+    #ra1 = random.choice([0, 1, 2, 3, 4, 5])
+    #print(ra1);
+    #cv2.rectangle(image, (300, 300), (570, 425), (0, 255, 0), cv2.FILLED)
+    #cv2.putText(image, str(ra1), (390, 375), cv2.FONT_HERSHEY_SIMPLEX,
+                #2, (255, 0, 0), 5)
 
-
-#def counter():
- #   for i in range(3, 0, -1):
-  #      print(i)
-   #     time.sleep(1)
-    #    cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
-     #   cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-
+def score():
+    ret, image = video.read()
+    cv2.rectangle(image, (550, 300), (750, 410), (94, 50, 33), cv2.FILLED)
+    cv2.putText(image, str("Score:" + str(score)), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (10, 208, 241), 3)
+    cv2.imshow("Frame", image)
+    cv2.waitKey(1000)
 
 def bat_bowl():
     fingers = []
@@ -102,6 +100,16 @@ with mp_hand.Hands(min_detection_confidence=0.5,
         k = cv2.waitKey(1)
         if k == ord('q'):
             break
+
+
+#def counter():
+ #   for i in range(3, 0, -1):
+  #      print(i)
+   #     time.sleep(1)
+    #    cv2.rectangle(image, (20, 100), (70, 125), (0, 255, 0), cv2.FILLED)
+     #   cv2.putText(image, str(i), (45, 375), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
+
+
 video.release()
 cv2.destroyAllWindows()
 

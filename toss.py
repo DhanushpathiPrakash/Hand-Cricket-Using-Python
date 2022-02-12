@@ -224,8 +224,8 @@ def owntoss():
     img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     ret, image = video.read()
-    cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
-    cv2.putText(image, ("You own the toss"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
+    cv2.rectangle(image, (480, 660), (800, 700), (231, 177, 222), cv2.FILLED)
+    cv2.putText(image, ("You own the toss"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (74, 11, 41), 1)
     roi = image[-size - 10:-10, -size - 10:-10]
     roi[np.where(mask)] = 0
     roi += logo1
@@ -239,8 +239,8 @@ def startg():
     img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     ret, image = video.read()
-    cv2.rectangle(image, (125, 425), (450, 455), (250, 88, 182), cv2.FILLED)
-    cv2.putText(image, ("Let's start Game"), (150, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (154, 208, 236), 0)
+    cv2.rectangle(image, (480, 660), (800, 700), (231, 177, 222), cv2.FILLED)
+    cv2.putText(image, ("Let's start Game"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (74, 11, 41), 1)
     roi = image[-size - 10:-10, -size - 10:-10]
     roi[np.where(mask)] = 0
     roi += logo1
@@ -257,8 +257,8 @@ def vran():
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (480, 660), (800, 700), (0, 181, 248), cv2.FILLED)
-        cv2.putText(image, ("You Loss the toss"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (127, 34, 94), 1)
+        cv2.rectangle(image, (480, 660), (800, 700), (231, 177, 222), cv2.FILLED)
+        cv2.putText(image, ("You Loss the toss"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (74, 11, 41), 1)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
@@ -272,8 +272,8 @@ def vran():
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (480, 660), (790, 700), (0, 181, 248), cv2.FILLED)
-        cv2.putText(image, ("System select for"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (127, 34, 94), 1)
+        cv2.rectangle(image, (480, 660), (790, 700), (231, 177, 222), cv2.FILLED)
+        cv2.putText(image, ("System select for"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (74, 11, 41), 1)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1

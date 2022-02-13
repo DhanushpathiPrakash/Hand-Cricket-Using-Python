@@ -415,7 +415,7 @@ def final_result():
     TIMER = int(2)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (370, 440), (770, 495), (185, 70, 45), cv2.FILLED)
+        cv2.rectangle(image, (370, 440), (770, 500), (185, 70, 45), cv2.FILLED)
         cv2.putText(image, str(display), (390, 480), cv2.FONT_HERSHEY_DUPLEX, 1.1, (255, 255, 255), 3)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0

@@ -169,6 +169,7 @@ def odd_even():
             cv2.waitKey(100)
             return "Odd"
 
+
 def randgen():
     ra1 = random.choice([0, 1, 2, 3, 4, 5])
     print(ra1);
@@ -198,8 +199,8 @@ def prefer():
         k = cv2.waitKey(1)
         if k == ord('b'):
             print("Bat")
-            cv2.rectangle(image, (500, 660), (760, 700), (109, 76, 76), cv2.FILLED)
-            cv2.putText(image, ("Bat"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (148, 225, 255), 1)
+            cv2.rectangle(image, (500, 660), (760, 700), (3, 3, 27), cv2.FILLED)
+            cv2.putText(image, ("Bat"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (157, 210, 228), 1)
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
@@ -208,8 +209,8 @@ def prefer():
             return "Bat"
         elif k == ord('w'):
             print("Bowl")
-            cv2.rectangle(image, (500, 660), (760, 700), (109, 76, 76), cv2.FILLED)
-            cv2.putText(image, ("Bowl"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (148, 225, 255), 1)
+            cv2.rectangle(image, (500, 660), (760, 700), (3, 3, 27), cv2.FILLED)
+            cv2.putText(image, ("Bowl"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (157, 210, 228), 1)
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
@@ -290,8 +291,8 @@ def vran():
     print(vran1);
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (590, 660), (680, 700), (109, 76, 76), cv2.FILLED)
-        cv2.putText(image, str(vran1), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (148, 225, 255), 1)
+        cv2.rectangle(image, (590, 660), (680, 700), (3, 3, 27), cv2.FILLED)
+        cv2.putText(image, str(vran1), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (157, 210, 228), 1)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
@@ -430,6 +431,7 @@ if __name__ =="__main__":
     score_2 = 0
     if (((tosstotal) % 2 == 0) and (toss == "Even")) or (((tosstotal) % 2 != 0) and (toss == "Odd")):
         print("You own the toss")
+        owntoss()
         #prefer = str(input("Type b for Bat and w for Bowl"))
         #print(prefer)
         prefer = prefer()

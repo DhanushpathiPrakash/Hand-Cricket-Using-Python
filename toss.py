@@ -415,8 +415,8 @@ def final_result():
     TIMER = int(2)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (350, 600), (910, 650), (231, 239, 228), cv2.FILLED)
-        cv2.putText(image, str(display), (370, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (32, 68, 6), 2)
+        cv2.rectangle(image, (370, 440), (770, 495), (185, 70, 45), cv2.FILLED)
+        cv2.putText(image, str(display), (390, 480), cv2.FONT_HERSHEY_DUPLEX, 1.1, (255, 255, 255), 3)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1

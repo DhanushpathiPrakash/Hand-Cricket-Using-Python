@@ -14,9 +14,9 @@ video.set(4, 768)
 
 def logo():
     prev = time.time()
-    TIMER = int(2)
+    TIMER = int(1)
     logo1 = cv2.imread('HPL.png')
-    size = 220
+    size = 350
     logo1 = cv2.resize(logo1, (size, size))
     img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
@@ -141,8 +141,9 @@ def odd_even():
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     while True:
         ret, image = video.read()
-        cv2.rectangle(image, (380, 600), (900, 650), (116, 132, 255), cv2.FILLED)
-        cv2.putText(image, ("Press e For Even o for Odd "), (390, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (114, 61, 88), 2)
+        cv2.rectangle(image, (378, 598), (902, 652), (27, 91, 240), 2)
+        cv2.rectangle(image, (380, 600), (900, 650), (3, 201, 250), cv2.FILLED)
+        cv2.putText(image, ("Press e For Even o for Odd "), (390, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (148, 89, 18), 2)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
@@ -150,23 +151,25 @@ def odd_even():
         k = cv2.waitKey(1)
         if k == ord('e'):
             print("Even")
+            cv2.rectangle(image, (478, 658), (762, 702), (0, 0, 0), 2)
             cv2.rectangle(image, (480, 660), (760, 700), (252, 249, 178), cv2.FILLED)
             cv2.putText(image, ("Even is choosen"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (9, 19, 83), 1)
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
             cv2.imshow("Frame" ,image)
-            cv2.waitKey(100)
+            cv2.waitKey(250)
             return "Even"
         elif k == ord('o'):
             print("Odd")
+            cv2.rectangle(image, (478, 658), (762, 702), (0, 0, 0), 2)
             cv2.rectangle(image, (480, 660), (760, 700), (252, 249, 178), cv2.FILLED)
             cv2.putText(image, ("Odd is choosen"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (9, 19, 83), 1)
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
             cv2.imshow("Frame" ,image)
-            cv2.waitKey(100)
+            cv2.waitKey(250)
             return "Odd"
 
 
@@ -190,8 +193,9 @@ def prefer():
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     while True:
         ret, image = video.read()
-        cv2.rectangle(image, (350, 600), (950, 650), (163, 111, 103), cv2.FILLED)
-        cv2.putText(image, ("Press b For Bat and w for Bowl"), (360, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (98, 225, 255),2)
+        cv2.rectangle(image, (348, 598), (992, 652), (53, 96, 137), 2)
+        cv2.rectangle(image, (350, 600), (990, 650), (37, 19, 184), cv2.FILLED)
+        cv2.putText(image, ("Press 'b' For Bat and 'w' for Bowl"), (360, 635), cv2.FONT_HERSHEY_DUPLEX, 1.1, (113, 171, 205),2)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
@@ -199,8 +203,9 @@ def prefer():
         k = cv2.waitKey(1)
         if k == ord('b'):
             print("Bat")
-            cv2.rectangle(image, (500, 660), (760, 700), (3, 3, 27), cv2.FILLED)
-            cv2.putText(image, ("Bat"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (157, 210, 228), 1)
+            cv2.rectangle(image, (498, 658), (762, 702), (20, 22, 31))
+            cv2.rectangle(image, (500, 660), (760, 700), (86, 32, 58), cv2.FILLED)
+            cv2.putText(image, ("Bat"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (92, 202, 234), 1)
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
@@ -209,8 +214,9 @@ def prefer():
             return "Bat"
         elif k == ord('w'):
             print("Bowl")
-            cv2.rectangle(image, (500, 660), (760, 700), (3, 3, 27), cv2.FILLED)
-            cv2.putText(image, ("Bowl"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (157, 210, 228), 1)
+            cv2.rectangle(image, (496, 656), (764, 704), (20, 22, 31))
+            cv2.rectangle(image, (498, 658), (762, 702), (86, 32, 58), cv2.FILLED)
+            cv2.putText(image, ("Bowl"), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (92, 202, 234), 1)
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
@@ -225,6 +231,7 @@ def owntoss():
     img2gray = cv2.cvtColor(logo1, cv2.COLOR_BGR2GRAY)
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     ret, image = video.read()
+    cv2.rectangle(image, (478, 658), (802, 702),(89, 45, 134),2)
     cv2.rectangle(image, (480, 660), (800, 700), (231, 177, 222), cv2.FILLED)
     cv2.putText(image, ("You own the toss"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (74, 11, 41), 1)
     roi = image[-size - 10:-10, -size - 10:-10]
@@ -258,6 +265,7 @@ def vran():
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
+        cv2.rectangle(image, (478, 658), (802, 702),(89, 45, 134),2)
         cv2.rectangle(image, (480, 660), (800, 700), (231, 177, 222), cv2.FILLED)
         cv2.putText(image, ("You Loss the toss"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (74, 11, 41), 1)
         roi = image[-size - 10:-10, -size - 10:-10]
@@ -273,6 +281,7 @@ def vran():
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
+        cv2.rectangle(image, (478, 658), (792, 702), (89, 45, 134), 2)
         cv2.rectangle(image, (480, 660), (790, 700), (231, 177, 222), cv2.FILLED)
         cv2.putText(image, ("System select for"), (490, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (74, 11, 41), 1)
         roi = image[-size - 10:-10, -size - 10:-10]
@@ -291,8 +300,9 @@ def vran():
     print(vran1);
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (590, 660), (680, 700), (3, 3, 27), cv2.FILLED)
-        cv2.putText(image, str(vran1), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (157, 210, 228), 1)
+        cv2.rectangle(image, (496, 656), (764, 704), (20, 22, 31))
+        cv2.rectangle(image, (498, 658), (762, 702), (86, 32, 58), cv2.FILLED)
+        cv2.putText(image, str(vran1), (600, 690), cv2.FONT_HERSHEY_DUPLEX, 1, (92, 202, 234), 1)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
@@ -328,12 +338,14 @@ def temp_score1(temp_score,ball):
     while TIMER >= 0:
         ret, image = video.read()
 
+        cv2.rectangle(image, (98, 563), (162, 702), (240, 240, 240), 2)
         cv2.rectangle(image, (100, 565), (160, 700), (94, 50, 33), cv2.FILLED)
         roib = image[-sizeb - 5:-5, -sizeb - 1100:-1100]
         roib[np.where(maskb)] = 0
         roib += bat
         cv2.putText(image, str(temp_score), (110, 625), cv2.FONT_HERSHEY_SIMPLEX,2, (10, 208, 241), 3)
 
+        cv2.rectangle(image, (1173, 18), (1237, 137), (240, 240, 240), 2)
         cv2.rectangle(image, (1175, 20), (1235, 135), (94, 50, 33), cv2.FILLED)
         roil = image[-sizel - 585:-585, -sizel - 50:-50]
         roil[np.where(maskl)] = 0
@@ -361,6 +373,7 @@ def out_scr(score):
     TIMER = int(1)
     while TIMER >= 0:
         ret, image = video.read()
+        cv2.rectangle(image, (448, 618), (777, 682),(10, 208, 241))
         cv2.rectangle(image, (450, 620), (775, 680), (94, 50, 33), cv2.FILLED)
         cv2.putText(image, str("Score:" + str(score)), (460, 670), cv2.FONT_HERSHEY_SIMPLEX, 2, (10, 208, 241), 2)
         roi = image[-size - 10:-10, -size - 10:-10]
@@ -415,7 +428,7 @@ def final_result():
             TIMER = TIMER - 1
 
 if __name__ =="__main__":
-    #logo()
+    logo()
     toss = odd_even()
     print("User Preference:", toss)
     counter()
@@ -610,7 +623,7 @@ if __name__ =="__main__":
                 final_result()
             else:
                 print("You are the losser")
-                display = ("You are the losser")
+                display = ("System Own the Match")
                 final_result()
 
 video.release()

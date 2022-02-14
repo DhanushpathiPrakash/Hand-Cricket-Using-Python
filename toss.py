@@ -27,7 +27,7 @@ def logo():
             roi = image[-size - 250:-250, -size - 500:-500]
             roi[np.where(mask)] = 0
             roi += logo1
-            cv2.imshow('Frame', image)
+            cv2.imshow('HPL', image)
             cv2.waitKey(30)
             cur = time.time()
             if cur - prev >= 1:
@@ -75,7 +75,7 @@ def toss1():
                 cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
                             2, (243, 255, 242), 5)
 
-                cv2.imshow("Frame", image)
+                cv2.imshow("HPL", image)
                 cv2.waitKey(10)
 
                 if total:
@@ -104,7 +104,7 @@ def counter():
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         cv2.waitKey(100)
         cur = time.time()
         if cur - prev >= 1:
@@ -126,7 +126,7 @@ def counter2():
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         cv2.waitKey(10)
         cur = time.time()
         if cur - prev >= 1:
@@ -147,7 +147,7 @@ def odd_even():
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         k = cv2.waitKey(1)
         if k == ord('e'):
             print("Even")
@@ -157,7 +157,7 @@ def odd_even():
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
-            cv2.imshow("Frame" ,image)
+            cv2.imshow("HPL" ,image)
             cv2.waitKey(250)
             return "Even"
         elif k == ord('o'):
@@ -168,7 +168,7 @@ def odd_even():
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
-            cv2.imshow("Frame" ,image)
+            cv2.imshow("HPL" ,image)
             cv2.waitKey(250)
             return "Odd"
 
@@ -179,7 +179,7 @@ def randgen():
     ret, image = video.read()
     #cv2.rectangle(image, (550, 20), (610, 90), (0, 255, 0), cv2.FILLED)
     #cv2.putText(image, str(ra1), (560, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
-    cv2.imshow("Frame" ,image)
+    cv2.imshow("HPL" ,image)
     cv2.waitKey(10)
 
     if ra1:
@@ -199,7 +199,7 @@ def prefer():
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         k = cv2.waitKey(1)
         if k == ord('b'):
             print("Bat")
@@ -209,7 +209,7 @@ def prefer():
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
-            cv2.imshow("Frame",image)
+            cv2.imshow("HPL",image)
             cv2.waitKey(250)
             return "Bat"
         elif k == ord('w'):
@@ -220,7 +220,7 @@ def prefer():
             roi = image[-size - 10:-10, -size - 10:-10]
             roi[np.where(mask)] = 0
             roi += logo1
-            cv2.imshow("Frame",image)
+            cv2.imshow("HPL",image)
             cv2.waitKey(250)
             return "Bowl"
 
@@ -237,7 +237,7 @@ def owntoss():
     roi = image[-size - 10:-10, -size - 10:-10]
     roi[np.where(mask)] = 0
     roi += logo1
-    cv2.imshow("Frame", image)
+    cv2.imshow("HPL", image)
     cv2.waitKey(1000)
 
 def startg():
@@ -252,7 +252,7 @@ def startg():
     roi = image[-size - 10:-10, -size - 10:-10]
     roi[np.where(mask)] = 0
     roi += logo1
-    cv2.imshow("Frame", image)
+    cv2.imshow("HPL", image)
     cv2.waitKey(1000)
 
 def vran():
@@ -271,7 +271,7 @@ def vran():
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         cv2.waitKey(30)
         cur = time.time()
         if cur - prev >= 1:
@@ -287,7 +287,7 @@ def vran():
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         cv2.waitKey(30)
         cur = time.time()
         if cur - prev >= 1:
@@ -306,7 +306,7 @@ def vran():
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame",image)
+        cv2.imshow("HPL",image)
         cv2.waitKey(30)
         cur = time.time()
         if cur - prev >= 1:
@@ -355,7 +355,7 @@ def temp_score1(temp_score,ball):
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
 
         cv2.waitKey(100)
         cur = time.time()
@@ -379,7 +379,7 @@ def out_scr(score):
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         cv2.waitKey(100)
         cur = time.time()
         if cur - prev >= 1:
@@ -399,7 +399,7 @@ def ready():
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         k = cv2.waitKey(1)
         if k == ord('r'):
             print("Ready !")
@@ -415,12 +415,12 @@ def final_result():
     TIMER = int(2)
     while TIMER >= 0:
         ret, image = video.read()
-        cv2.rectangle(image, (370, 440), (770, 500), (185, 70, 45), cv2.FILLED)
+        cv2.rectangle(image, (370, 440), (790, 500), (185, 70, 45), cv2.FILLED)
         cv2.putText(image, str(display), (390, 480), cv2.FONT_HERSHEY_DUPLEX, 1.1, (255, 255, 255), 3)
         roi = image[-size - 10:-10, -size - 10:-10]
         roi[np.where(mask)] = 0
         roi += logo1
-        cv2.imshow("Frame", image)
+        cv2.imshow("HPL", image)
         cv2.waitKey(50)
         cur = time.time()
         if cur - prev >= 1:

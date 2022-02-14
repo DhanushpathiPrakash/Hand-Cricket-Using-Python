@@ -32,3 +32,29 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
   - If the bat and bowl get same run the condition get out.
   - But now gave the result by using which score is higher.It diaplay as `You own the Match` or `System own the match`
   - Both score can be same it dispaly as `Match Draw`
+
+<hr>
+
+
+<table border=1>
+  <tr>
+    <td>Do</td>
+    <td>Don't Do</td>
+  </tr>
+  <tr>
+    <td>🤜 Show the front side of user hand</td>
+    <td>🤜 Don't show the back side of the hand</td>
+  </tr>
+  <tr>
+    <td>🤜 use one hand but right hand is much prefered to play </td>
+    <td>🤜 Don't use two two hand because it read on hand</td>
+  </tr>
+  <tr>
+    <td>🤜 show your hand inside the frame</td>
+    <td>🤜 if you don't show the hand it not move to next function</td>
+  </tr>
+  <tr>
+    <td>🤜 play in the brigth area due to deduct the runs </td>
+    <td>🤜 Don't play in drak area it take a time to deduct sometime not deduct the runs</td>
+  </tr>
+</table>

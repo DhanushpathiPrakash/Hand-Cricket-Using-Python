@@ -16,4 +16,14 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
 <hr>
 
 ## Instruction :
-
+  - Clone the [HPL](https://github.com/DhanushpathiPrakash/Hand-Cricket-Using-Python) from the github. Run the `HPL.py` in your machine before that you check the Tech stack.
+  - When start run the project.It automatically open yhe HPL Frame on your machine
+  - On the frame 'Press "e" for Even and "o" for Odd' text will display.
+  - Select the character 'e' or 'o' .Either you select `e` for choose to  **Even** or select `o` for choose to **Odd**.
+  - After selecting counter is start to count show you hand in front of the machine camera to deduct and count the finger for generate the number for the toss.
+  - if you own the toss choose for bat or bowl for that press `b` for batting or `w` for bowling.
+  - otherwise you loss the toss system can select automatically.
+  - if 
+  -   {
+  -     
+  -   }

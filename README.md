@@ -7,7 +7,7 @@ Hand Cricket is an fascinating game that we used to play during our childhood da
 - Mediapipe
 - Python
 
-# Prerequites:
+# Pre-requites:
 ### 1. Install OpenCV Python
   - `pip install opencv-python`
 ### 2. Install Mediapipe

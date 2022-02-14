@@ -2,7 +2,7 @@
 <img src="https://github.com/DhanushpathiPrakash/Hand-Cricket-Using-Python/blob/main/HPL.png" width="190" height="190">
 Hand Cricket is a fascinating game that we used to play during our childhood days. Having the vibes of the IPL and World Cup series, we used to daydream about the match while sitting on the backbench. Hand Cricket is an unbeatable game that feeds our imaginations and, makes oneself happy even sitting in a classroom. Having thought of those unforgettable memories and came up with the Desktop version of Hand Cricket.uction
 
-## Tech Stack:
+## Tech Stack:1
 - Opencv
 - Mediapipe
 - Python
@@ -23,7 +23,12 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
   - After selecting counter is start to count show you hand in front of the machine camera to deduct and count the finger for generate the number for the toss.
   - if you own the toss choose for bat or bowl for that press `b` for batting or `w` for bowling.
   - otherwise you loss the toss system can select automatically.
-  - if 
-  -   {
-  -     
-  -   }
+  - After selecting bat or bowl
+  - Counter can start to count while the time of counting show you hand in front of the machine camera to deduct and count the finger for generate the score.
+  - The batting runs display on the left-bottom corner of the frame .The bowl run can display on rigth-top corner of the screen.
+  - If the bat and bowl get same runs the condition get out.
+  - If you choose bat or bowl after get condition out the comment is play to start the second inning for press `r`.
+  - The batting runs display on the left-bottom corner of the frame .The bowl runs can display on rigth-top corner of the screen.
+  - If the bat and bowl get same run the condition get out.
+  - But now gave the result by using which score is higher.It diaplay as `You own the Match` or `System own the match`
+  - Both score can be same it dispaly as `Match Draw`

@@ -38,8 +38,8 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
 
 <table border=1>
   <tr>
-    <td>Do</td>
-    <td>Don't Do</td>
+    <td><center>Do's</center></td>
+    <td><center>Don't Do's</center></td>
   </tr>
   <tr>
     <td>🤜 Show the front side of user hand</td>

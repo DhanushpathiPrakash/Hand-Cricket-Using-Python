@@ -70,11 +70,6 @@ def toss1():
                 total = fingers.count(1)
                 # print("Toss One Function ic called", total)
 
-
-                cv2.rectangle(image, (20, 300), (270, 425), (189, 51, 13), cv2.FILLED)
-                cv2.putText(image, str(total), (45, 375), cv2.FONT_HERSHEY_SIMPLEX,
-                            2, (243, 255, 242), 5)
-
                 cv2.imshow("HPL", image)
                 cv2.waitKey(10)
 

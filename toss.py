@@ -95,7 +95,7 @@ def counter():
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     prev = time.time()
     TIMER = int(3)
-    while TIMER >= 0:
+    while TIMER >= 1:
         #print(TIMER)
         # time.sleep(1)
         ret, image = video.read()
@@ -119,7 +119,7 @@ def counter2():
     ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
     prev = time.time()
     TIMER = int(2)
-    while TIMER >= 0:
+    while TIMER >= 1:
         ret, image = video.read()
         cv2.circle(image, (45, 45), 35, (255, 255, 255), -1)
         cv2.putText(image, str(TIMER), (25, 65), cv2.FONT_HERSHEY_SIMPLEX, 2, (127, 30, 12), 3)

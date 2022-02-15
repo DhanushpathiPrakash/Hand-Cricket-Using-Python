@@ -29,8 +29,8 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
 
 <table border=1>
   <tr>
-    <td style="text-align:center">Do's 👍</td>
-    <td style="text-align:center">Don'ts 👎</td>
+    <td><p align="center">Do's 👍</p></td>
+    <td><p align="center">Don'ts 👎</p></td>
   </tr>
   <tr>
     <td>🤜 Use the number from 1 to 5</td>
@@ -56,4 +56,31 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
 
 <hr>
 
-<div style="text-align: center; font-size: x-large">Finger Pose Image</div>
+## Finger Pose Image
+
+<p align="center"> <img src="https://res.cloudinary.com/doxblfpd9/image/upload/v1644941897/Hand%20Cricket%20/InShot_20220215_214143570_zsnmvy.jpg" width="500" height="750" /></p>
+
+## Demo Video
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

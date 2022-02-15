@@ -15,15 +15,11 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
 
 <hr>
 
-## Instruction :
-  - Clone the [HPL](https://github.com/DhanushpathiPrakash/Hand-Cricket-Using-Python) from the github. Run the `HPL.py` in your machine before that you check the Tech stack.
-  - When start run the project.It automatically open yhe HPL Frame on your machine
-  - On the frame 'Press "e" for Even and "o" for Odd' text will display.
-  - Select the character 'e' or 'o' .Either you select `e` for choose to  **Even** or select `o` for choose to **Odd**.
-  - After selecting counter is start to count show you hand in front of the machine camera to deduct and count the finger for generate the number for the toss.
-  - if you own the toss choose for bat or bowl for that press `b` for batting or `w` for bowling.
-  - otherwise you loss the toss system can select automatically.
-  - After selecting bat or bowl
+## Instruction:
+  - Clone the [HPL](https://github.com/DhanushpathiPrakash/Hand-Cricket-Using-Python) from the github and run the `HPL.py`
+  - On the frame 'Press "e" for Even and "o" for Odd', type the character 'e' or 'o' to choose **Even** or **Odd**.
+  - You can face any number from **0 to 5** against the camera. Meanwhile, system will generate a number. If the summation of the your number and system's number equalise( Either Even or Odd) your toss, you will win the toss else system will decide to bat or bowl.
+  - If you own the toss, system ask for bat or bowl `press `b` for batting or `w` for bowling`.
   - Counter can start to count while the time of counting show you hand in front of the machine camera to deduct and count the finger for generate the score.
   - The batting runs display on the left-bottom corner of the frame .The bowl run can display on rigth-top corner of the screen.
   - If the bat and bowl get same runs the condition get out.
@@ -39,7 +35,7 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
 <table border=1>
   <tr>
     <td style="text-align:center">Do's 👍</td>
-    <td style="text-align:center">Don't Do's 👎</td>
+    <td style="text-align:center">Don'ts 👎</td>
   </tr>
   <tr>
     <td>🤜 Use 1 to 5 count</td>

@@ -42,6 +42,10 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
     <td><center>Don't Do's</center></td>
   </tr>
   <tr>
+    <td>🤜 Use 1 to 5 count</td>
+    <td>🤜 Don't show 6 for thumb</td>
+  </tr>
+  <tr>
     <td>🤜 Show the front side of user hand</td>
     <td>🤜 Don't show the back side of the hand</td>
   </tr>

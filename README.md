@@ -62,3 +62,7 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
     <td>🤜 Don't play in drak area it take a time to deduct sometime not deduct the runs</td>
   </tr>
 </table>
+
+<hr>
+
+<div style="text-align: center; font-size: x-large">Finger Pose Image</div>

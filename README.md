@@ -19,15 +19,10 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
   - Clone the [HPL](https://github.com/DhanushpathiPrakash/Hand-Cricket-Using-Python) from the github and run the `HPL.py`
   - On the frame 'Press "e" for Even and "o" for Odd', type the character 'e' or 'o' to choose **Even** or **Odd**.
   - You can face any number from **0 to 5** against the camera. Meanwhile, system will generate a number. If the summation of the your number and system's number equalise( Either Even or Odd) your toss, you will win the toss else system will decide to bat or bowl.
-  - If you own the toss, system ask for bat or bowl `press `b` for batting or `w` for bowling`.
-  - Counter can start to count while the time of counting show you hand in front of the machine camera to deduct and count the finger for generate the score.
+  - If you own the toss, system ask for bat or bowl `press 'b' for batting or 'w' for bowling`.
+  - While timer counts, show you hand in front of the camera to detect and count the finger to generate the score.
   - The batting runs display on the left-bottom corner of the frame .The bowl run can display on rigth-top corner of the screen.
-  - If the bat and bowl get same runs the condition get out.
-  - If you choose bat or bowl after get condition out the comment is play to start the second inning for press `r`.
-  - The batting runs display on the left-bottom corner of the frame .The bowl runs can display on rigth-top corner of the screen.
-  - If the bat and bowl get same run the condition get out.
-  - But now gave the result by using which score is higher.It diaplay as `You own the Match` or `System own the match`
-  - Both score can be same it dispaly as `Match Draw`
+  - If **the bat and bowl numbers are same**, one who batting will out.
 
 <hr>
 
@@ -38,23 +33,23 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
     <td style="text-align:center">Don'ts 👎</td>
   </tr>
   <tr>
-    <td>🤜 Use 1 to 5 count</td>
-    <td>🤜 Don't show 6 for thumb</td>
+    <td>🤜 Use the number from 1 to 5</td>
+    <td>🤜 Don't show 6</td>
   </tr>
   <tr>
     <td>🤜 Show the front side of user hand</td>
     <td>🤜 Don't show the back side of the hand</td>
   </tr>
   <tr>
-    <td>🤜 use one hand but right hand is much prefered to play </td>
-    <td>🤜 Don't use two two hand because it read on hand</td>
+    <td>🤜 Use one hand and right hand is much prefered to play </td>
+    <td>🤜 Don't use two hands</td>
   </tr>
   <tr>
-    <td>🤜 show your hand inside the frame</td>
-    <td>🤜 if you don't show the hand it not move to next function</td>
+    <td>🤜 Show your hand inside the frame</td>
+    <td>🤜 If you don't show the hand, it will wait for you</td>
   </tr>
   <tr>
-    <td>🤜 play in the brigth area due to deduct the runs </td>
-    <td>🤜 Don't play in drak area it take a time to deduct sometime not deduct the runs</td>
+    <td>🤜 Play in bright area</td>
+    <td>🤜 Avoid dark places</td>
   </tr>
 </table>

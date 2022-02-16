@@ -12,7 +12,7 @@ video = cv2.VideoCapture(0)
 video.set(3, 1366)
 video.set(4, 768)
 
-def logo():
+def logo(): # Function that displays logo
     prev = time.time()
     TIMER = int(1)
     logo1 = cv2.imread('HPL.png')
@@ -33,7 +33,7 @@ def logo():
                 prev = cur
                 TIMER = TIMER - 1
 
-def toss1():
+def toss1(): # Function that detects the finger and counts the value
     total = ""
     with mp_hand.Hands(min_detection_confidence=0.5,
                        min_tracking_confidence=0.5) as hands:
@@ -74,7 +74,7 @@ def toss1():
                 elif total == 0:
                     return total
 
-def counter():
+def counter(): # Timer Block
     logo1 = cv2.imread('HPL.png')
     size = 100
     logo1 = cv2.resize(logo1, (size, size))
@@ -96,7 +96,7 @@ def counter():
             prev = cur
             TIMER = TIMER - 1
 
-def counter2():
+def counter2(): # Timer Block 2
     logo1 = cv2.imread('HPL.png')
     size = 100
     logo1 = cv2.resize(logo1, (size, size))
@@ -118,7 +118,7 @@ def counter2():
             prev = cur
             TIMER = TIMER - 1
 
-def odd_even():
+def odd_even(): # This function asks for odd or even
     logo1 = cv2.imread('HPL.png')
     size = 100
     logo1 = cv2.resize(logo1, (size, size))
@@ -158,7 +158,7 @@ def odd_even():
             return "Odd"
 
 
-def randgen():
+def randgen(): # Function to generate system score
     ra1 = random.choice([0, 1, 2, 3, 4, 5])
     print(ra1);
     ret, image = video.read()
@@ -411,25 +411,27 @@ def final_result():
             TIMER = TIMER - 1
 
 if __name__ =="__main__":
-    logo()
+    logo() # Display the logo
     toss = odd_even()
     print("User Preference:", toss)
-    counter()
+    counter() # Timer
     value = toss1()
     print("User Value:", value)
-    ran_value = randgen()
+    ran_value = randgen() # system generated score
     if ran_value == None:
         ran_value = 0
     print("System Value:", ran_value)
-    tosstotal = ran_value +value
+    tosstotal = ran_value + value
     print("Total:",tosstotal)
     score_1 = 0
     score_2 = 0
-    if (((tosstotal) % 2 == 0) and (toss == "Even")) or (((tosstotal) % 2 != 0) and (toss == "Odd")):
+    if (((tosstotal) % 2 == 0) and (toss == "Even")) or (((tosstotal) % 2 != 0) and (toss == "Odd")): # Check for the Toss
         print("You own the toss")
         owntoss()
         prefer = prefer()
         print("Let's start the game")
+
+        # 1st Innings if bat is chosen
         if prefer == "Bat":
             while True:
                 counter2()
@@ -439,13 +441,15 @@ if __name__ =="__main__":
                     bowling = 0
                 print("1st Innings Batting:", batting)
                 print("1st Innings Bowling:", bowling)
-                temp_score1(batting,bowling)
-                if batting == bowling:
+                temp_score1(batting,bowling) # Displays the score in Screen
+                if batting == bowling: # Check for out
                     print("Out !! 1st Innings Score:", score_1)
                     out_scr(score_1)
                     break
                 score_1 += batting
             ready()
+
+            # 2nd Innings if bat is chosen
             while True:
                 counter2()
                 batting = randgen()
@@ -473,6 +477,7 @@ if __name__ =="__main__":
                 display = ("System Own the Match")
                 final_result()
 
+        # 1st Innings if bowl is chosen
         elif prefer == "Bowl":
             while True:
                 counter2()
@@ -489,6 +494,7 @@ if __name__ =="__main__":
                     break
                 score_1 += batting
             ready()
+            # 2nd Innings if bowl is chosen
             while True:
                 counter2()
                 batting = toss1()
@@ -516,11 +522,14 @@ if __name__ =="__main__":
                 display = ("System Own the Match")
                 final_result()
 
+    # This block will execute if we loss the toss
     else:
         score_5 = 0
         score_6 = 0
         system_pick = vran()
         print("Let's start the game")
+
+        # 1st Innings if system is chosen to bat
         if system_pick == "Bat":
             while True:
                 counter2()
@@ -537,6 +546,7 @@ if __name__ =="__main__":
                     break
                 score_5 += batting
             ready()
+            # 2nd Innings if system is chosen to bat
             while True:
                 counter2()
                 batting = toss1()
@@ -564,6 +574,7 @@ if __name__ =="__main__":
                 display = ("System own the Match")
                 final_result()
 
+        # 1st Innings if system is chosen to bowl
         elif system_pick == "Bowl":
             while True:
                 counter2()
@@ -580,6 +591,7 @@ if __name__ =="__main__":
                     break
                 score_5 += batting
             ready()
+            # 2nd Innings if system is chosen to bowl
             while True:
                 counter2()
                 batting = randgen()

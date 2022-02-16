@@ -56,11 +56,11 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
 
 <hr>
 
-## Finger Pose Image
+## Finger Pose Image:
 
-<p align="center"> <img src="https://res.cloudinary.com/doxblfpd9/image/upload/v1644941897/Hand%20Cricket%20/InShot_20220215_214143570_zsnmvy.jpg" width="500" height="750" /></p>
+![Fingers position](https://user-images.githubusercontent.com/64604283/154222295-b7e88f2c-f7d5-4a43-8ec3-ff65e1d0a89e.jpg)
 
-## Demo Video
+## Demo Video:
 
 
 

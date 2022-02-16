@@ -74,8 +74,8 @@ https://user-images.githubusercontent.com/78605418/154106907-b7ba9656-3f02-4291-
 
 ## For More Details:
 
-### Suntrakanesh Subramanian <a href="https://www.linkedin.com/in/suntrakanesh-su-0a81471a4/"><img src="https://github.com/terrytangyuan/terrytangyuan/blob/master/imgs/linkedin.svg" alt="LinkedIn"></a>
-### Dhanushpathi Prakash <a href="https://www.linkedin.com/in/dhanushpathi-prakash-9296b71a1/"><img src="https://github.com/terrytangyuan/terrytangyuan/blob/master/imgs/linkedin.svg" alt="LinkedIn"></a>
+#### Suntrakanesh Subramanian <a href="https://www.linkedin.com/in/suntrakanesh-su-0a81471a4/"><img src="https://github.com/terrytangyuan/terrytangyuan/blob/master/imgs/linkedin.svg" alt="LinkedIn"></a>
+#### Dhanushpathi Prakash <a href="https://www.linkedin.com/in/dhanushpathi-prakash-9296b71a1/"><img src="https://github.com/terrytangyuan/terrytangyuan/blob/master/imgs/linkedin.svg" alt="LinkedIn"></a>
 
 
 

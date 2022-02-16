@@ -72,8 +72,9 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
 
 https://user-images.githubusercontent.com/78605418/154106907-b7ba9656-3f02-4291-bf03-c69acfb39198.mp4
 
+## For More Details:
 
-
+[Dhanushpathi Prakash](https://www.linkedin.com/in/dhanushpathi-prakash-9296b71a1/)
 
 
 

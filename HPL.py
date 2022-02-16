@@ -23,7 +23,6 @@ def logo():
     while video.isOpened() and TIMER >= 0:
         ret, image = video.read()
         if ret:
-            #image = cv2.flip(image, 0)
             roi = image[-size - 250:-250, -size - 500:-500]
             roi[np.where(mask)] = 0
             roi += logo1
@@ -34,9 +33,7 @@ def logo():
                 prev = cur
                 TIMER = TIMER - 1
 
-#temp_scroe1 = 0;
 def toss1():
-    #global temp_scroe1
     total = ""
     with mp_hand.Hands(min_detection_confidence=0.5,
                        min_tracking_confidence=0.5) as hands:
@@ -51,7 +48,7 @@ def toss1():
             if results.multi_hand_landmarks:  # hand land mark https://media.geeksforgeeks.org/wp-content/uploads/20210802154942/HandLandmarks.png
                 for hand_landmark in results.multi_hand_landmarks:
                     myHands = results.multi_hand_landmarks[0]  # strating point of a landmark
-                    for id, lm in enumerate(myHands.landmark):  # coordinate of the axis in landmarl
+                    for id, lm in enumerate(myHands.landmark):  # coordinate of the axis in landmark
                         h, w, c = image.shape  # height and weight of frame
                         cx, cy = int(lm.x * w), int(lm.y * h)  # coordinate axis  value
                         lmList.append([id, cx, cy])  # list for coordinate
@@ -68,7 +65,6 @@ def toss1():
                     else:
                         fingers.append(0)
                 total = fingers.count(1)
-                # print("Toss One Function ic called", total)
 
                 cv2.imshow("HPL", image)
                 cv2.waitKey(10)
@@ -77,10 +73,6 @@ def toss1():
                     return total
                 elif total == 0:
                     return total
-
-        # k = cv2.waitKey(1)
-        # if k == ord('t'):
-        #   break
 
 def counter():
     logo1 = cv2.imread('HPL.png')
@@ -91,8 +83,6 @@ def counter():
     prev = time.time()
     TIMER = int(3)
     while TIMER >= 1:
-        #print(TIMER)
-        # time.sleep(1)
         ret, image = video.read()
         cv2.circle(image, (45, 45), 35, (255, 255, 255), -1)
         cv2.putText(image, str(TIMER), (25, 65), cv2.FONT_HERSHEY_SIMPLEX, 2, (127, 30, 12), 3)
@@ -172,8 +162,6 @@ def randgen():
     ra1 = random.choice([0, 1, 2, 3, 4, 5])
     print(ra1);
     ret, image = video.read()
-    #cv2.rectangle(image, (550, 20), (610, 90), (0, 255, 0), cv2.FILLED)
-    #cv2.putText(image, str(ra1), (560, 75), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 5)
     cv2.imshow("HPL" ,image)
     cv2.waitKey(10)
 
@@ -440,8 +428,6 @@ if __name__ =="__main__":
     if (((tosstotal) % 2 == 0) and (toss == "Even")) or (((tosstotal) % 2 != 0) and (toss == "Odd")):
         print("You own the toss")
         owntoss()
-        #prefer = str(input("Type b for Bat and w for Bowl"))
-        #print(prefer)
         prefer = prefer()
         print("Let's start the game")
         if prefer == "Bat":

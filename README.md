@@ -54,7 +54,7 @@ Hand Cricket is a fascinating game that we used to play during our childhood day
   </tr>
 </table>
 
-<hr>
+
 
 ## Finger Pose Image:
 

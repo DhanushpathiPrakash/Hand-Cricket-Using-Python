@@ -7,7 +7,7 @@ import numpy as np
 mp_draw = mp.solutions.drawing_utils  # Draw the  hand pose
 mp_hand = mp.solutions.hands  # solution for hand
 
-tipIds = [4, 8, 12, 16, 20]  # to identify tip of all fingers
+tipIds = [4, 8, 12, 16, 20] # to identify tip of all fingers
 video = cv2.VideoCapture(0)
 video.set(3, 1366)
 video.set(4, 768)
